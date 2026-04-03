@@ -26,7 +26,7 @@ void tyrimasVisasProcesas() {
         int pasirinkimas = 1;
         int rikiavimo_budas = 3;
         int isvedimas = 2;
-        int rusiavimas = 3;
+        int rusiavimas = 2;
 
         auto pradzia = std::chrono::high_resolution_clock::now();
         StudentuGrupe grupe = bufer_nusk(failas, pasirinkimas, n); // Nuskaitome duomenis iš failo
