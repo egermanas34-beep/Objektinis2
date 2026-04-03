@@ -11,6 +11,11 @@ public:
   double rez = 0.0;
   string lygis;
 
+  Studentas();
+
+  
+  ~Studentas();
+
   void skaiciuoti_rezultata(int pasirinkimas)
   {
     if (paz.empty()) {
@@ -28,7 +33,7 @@ public:
       return;
     }
 
-    vector<int> kopija = paz;
+    
     sort(paz.begin(), paz.end());
     if (paz.size() % 2 == 1) {
       mediana = paz[paz.size() / 2];
@@ -44,7 +49,7 @@ public:
   }
 };
 //sukurti alias StudentuGrupe, kuri galima nuadoti kaip vektoriu, lista arba deque tipo konteineri, tam, kad patikrinti programos sparta, su skirtingo tipo konteineriais.
-//using StudentuGrupe = std::vector<Studentas>;  // vector
+using StudentuGrupe = std::vector<Studentas>;  // vector
 //using StudentuGrupe = std::list<Studentas>;      // list
-using StudentuGrupe = std::deque<Studentas>;   // deque
+//using StudentuGrupe = std::deque<Studentas>;   // deque
 const int Maxpazymiu=20;
