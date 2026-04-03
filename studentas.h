@@ -11,10 +11,10 @@ public:
   double rez = 0.0;
   string lygis;
 
-  Studentas();
+  Studentas() = default;
 
   
-  ~Studentas();
+  ~Studentas() = default;
 
   void skaiciuoti_rezultata(int pasirinkimas)
   {
