@@ -2,7 +2,7 @@
 
 
 void tyrimasFailoKurimas() {
-    vector<int> dydziai = {1000, 10000, 100000, 1000000, 10000000}; 
+    vector<int> dydziai = {100000, 1000000}; 
 
     for (int n : dydziai) 
     {
