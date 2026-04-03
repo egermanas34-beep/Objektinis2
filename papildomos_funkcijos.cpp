@@ -81,17 +81,12 @@ void studentoLygis(StudentuGrupe &grupe, StudentuGrupe &vargsiukai, StudentuGrup
     else if (rusiavimas == 2) 
     {
         // 2 strategija: vienu perėjimu vargsiukus perkeliame, o iš grupes ištriname.
-        auto it = std::remove_if(grupe.begin(), grupe.end(),[&](const Studentas& A)
-        {
-        if (A.rez < 5.0)
-        {
-            vargsiukai.push_back(A);
-            return true;// std::remove_if grąžina iteratorių į pirmą elementą, kuris turi būti pašalintas, todėl mes galime naudoti šį iteratorių, kad ištrintume visus vargsiukus iš grupės vienu perėjimu.
-        }
-        return false;// Jei studentas nėra vargsiukas, jis lieka grupėje, todėl grupe.erase() pašalina tik tuos elementus, kurie buvo pažymėti kaip vargsiukai.
-        });
-
-        grupe.erase(it, grupe.end());}
+       for(const auto &A :grupe)
+       {
+            if(A.rez<5.0) {vargsiukai.push_back(A); grupe.pop_back();}
+            smartukai=grupe;
+       }
+    }
    else if( rusiavimas == 3)
    {
        // 3 strategija: dalijame su partition, vargsiukus perkeliame, grupėje paliekame tik smartukus.
