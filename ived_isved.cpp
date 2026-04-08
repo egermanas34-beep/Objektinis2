@@ -30,27 +30,11 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 
             std::stringstream ss(eil);// Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
             Studentas A;
-            ss >> A.Vardas >> A.Pavarde;// Skaitome pirmus du žodžius kaip studento vardą ir pavardę
+            ss>>A;// Skaitome pirmus du žodžius kaip studento vardą ir pavardę
             if (A.Vardas.empty() || A.Pavarde.empty()) 
             {
                 continue;
             }
-
-            vector<int> visi_pazymiai;// Sukuriame vektorių, kuris saugos visus pažymius, įskaitant egzaminą
-            int pazymys;
-            while (ss >> pazymys) 
-            {
-                visi_pazymiai.push_back(pazymys);// Skaitome visus likusius skaičius kaip pažymius ir pridedame juos į vektorių
-            }
-
-            if (visi_pazymiai.size() < 2) // Tikriname, ar yra pakankamai pažymių (bent vienas pažymys ir egzaminas), ir jei ne, praleidžiame šį įrašą
-            {
-                continue;
-            }
-
-            A.egz = visi_pazymiai.back(); // Paskutinis pažymys yra egzaminas, todėl jį išskiriame ir priskiriame studento egzaminui
-            visi_pazymiai.pop_back(); // Pašaliname egzaminą iš pažymių vektoriaus, kad liktų tik semestro pažymiai
-            A.paz = visi_pazymiai; // Priskiriame likusius pažymius studento pažymių vektoriui
 
             A.skaiciuoti_rezultata(pasirinkimas);
         

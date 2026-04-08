@@ -28,6 +28,7 @@ public:
 
   ~Studentas() = default;
 
+
   void skaiciuoti_rezultata(int pasirinkimas)
   {
     if (paz.empty()) {
@@ -60,8 +61,29 @@ public:
     paz.clear();
   }
   friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
+  friend std::istream& operator>>(std::istream& is, Studentas& s);
 };
+inline std::istream& operator>>(std::istream& is, Studentas& s)
+{
+  is >> s.Vardas >> s.Pavarde;
+  vector<int> visi_pazymiai;// Sukuriame vektorių, kuris saugos visus pažymius, įskaitant egzaminą
+  int pazymys;
+  while (is >> pazymys)
+  {
+    visi_pazymiai.push_back(pazymys);// Skaitome visus likusius skaičius kaip pažymius ir pridedame juos į vektorių
+  }
 
+  /*if (visi_pazymiai.size() < 2) // Tikriname, ar yra pakankamai pažymių (bent vienas pažymys ir egzaminas), ir jei ne, praleidžiame šį įrašą
+    {
+       continue;
+    }*/
+
+  s.egz = visi_pazymiai.back(); // Paskutinis pažymys yra egzaminas, todėl jį išskiriame ir priskiriame studento egzaminui
+  visi_pazymiai.pop_back(); // Pašaliname egzaminą iš pažymių vektoriaus, kad liktų tik semestro pažymiai
+ s.paz = visi_pazymiai; // Priskiriame likusius pažymius studento pažymių vektoriui
+          
+  return is;
+}
 inline std::ostream& operator<<(std::ostream& os, const Studentas& s)
 {
     os << left << setw(15) << s.Vardas
