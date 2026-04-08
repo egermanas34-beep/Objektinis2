@@ -14,22 +14,22 @@ public:
   double rez = 0.0;
   string lygis;
 
-  Studentas() = default;
-  Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas)
+  Studentas() = default;// Naudojame numatytąjį konstruktorių, kuris leidžia sukurti tuščią Studentas objektą
+  Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas)// Konstruktorius, kuris leidžia sukurti Studentas objektą su visais duomenimis
       : Vardas(vardas), Pavarde(pavarde), paz(pazymiai), egz(egzaminas) {}
 
-  Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas, int pasirinkimas)
+  Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas, int pasirinkimas)// Konstruktorius, kuris leidžia sukurti Studentas objektą su visais duomenimis ir iš karto apskaičiuoti rezultatą
       : Vardas(vardas), Pavarde(pavarde), paz(pazymiai), egz(egzaminas)
   {
     skaiciuoti_rezultata(pasirinkimas);
   }
 
-  Studentas(const Studentas&) = default;
-  Studentas(Studentas&&) noexcept = default;
-  Studentas& operator=(const Studentas&) = default;
-  Studentas& operator=(Studentas&&) noexcept = default;
+  Studentas(const Studentas&) = default;// Naudojame numatytąjį kopijavimo konstruktorių, kuris leidžia sukurti Studentas objektą kopijuojant kitą Studentas objektą
+  Studentas(Studentas&&) noexcept = default;// Naudojame numatytąjį perkelimo konstruktorių, kuris leidžia sukurti Studentas objektą perkelti kitą Studentas objektą
+  Studentas& operator=(const Studentas&) = default;// Naudojame numatytąjį kopijavimo priskyrimo operatorių, kuris leidžia priskirti vieną Studentas objektą kitam Studentas objektui
+  Studentas& operator=(Studentas&&) noexcept = default;// Naudojame numatytąjį perkelimo priskyrimo operatorių, kuris leidžia priskirti vieną Studentas objektą kitam Studentas objektui perkelti
 
-  ~Studentas() = default;
+  ~Studentas() = default;// Naudojame numatytąjį destruktorių, kuris leidžia sunaikinti Studentas objektą, kai jis nebereikalingas
 
   void nuskaityti_ranka(int max_pazymiu)
   {
