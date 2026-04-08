@@ -1,6 +1,5 @@
 
-#include "headeriai.h"
-#include "tyrimai.h"
+#include "funkcijos.h" 
 #include <windows.h>// Įtraukiame Windows.h biblioteką, kad galėtume naudoti funkcijas, susijusias su konsolės kodavimo nustatymais
 
 

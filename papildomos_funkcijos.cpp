@@ -1,5 +1,4 @@
-#include "papildomos.h"
-#include "generavimas.h"
+#include "funkcijos.h"
 
 template <typename Container, typename Compare>// Templatizuota funkcija rikiuoti, kuri naudoja std::sort algoritmą, kad rikiuotų bet kokio tipo konteinerį (vector, deque) pagal pateiktą comparatorių.
 static void rikiuoti(Container &grupe, Compare comp) // Container yra bet kokio tipo konteineris, o Compare yra funkcija, kuri nurodo, kaip rikiuoti elementus

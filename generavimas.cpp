@@ -1,5 +1,4 @@
-#include "generavimas.h"
-#include "papildomos.h"
+#include "funkcijos.h"
 
 void generavimasSk(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
 {
