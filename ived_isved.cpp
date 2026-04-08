@@ -1,7 +1,5 @@
-#include "bibliotekos.h"
-#include "studentas.h"
-#include "papildomos.h"
-#include "Iv_Isv.h"
+#include "funkcijos.h"
+
 
 StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 {
