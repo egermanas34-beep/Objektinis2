@@ -10,13 +10,12 @@ void generavimasSk(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
         cout<<"Iš viso gali būti įvesta "<<Maxpazymiu<<" pažymių."<<endl;
         cout<<"Įveskite semestro pažymius : \n";
         int n = skaiciu_mastelis("Kiek pažymių norite sugeneruoti? ", 1, Maxpazymiu);
-        int temp, sum=0;
+        int temp;
         for(int ii=0;ii<n;ii++)
         {
             temp = rand() % 10 + 1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
             cout<<"Sugeneruotas "<<ii+1<<" pažymys: "<<temp<<endl;
             A.paz.push_back(temp);
-            sum+=temp;
         }
         if(pasirinkimas==1 && n<Maxpazymiu) 
         {
@@ -28,16 +27,9 @@ void generavimasSk(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
 
         A.egz = rand() % 10 + 1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
         cout<<"Sugeneruotas egzamino pažymys: "<<A.egz<<endl;
-        if(pasirinkimas == 1)
-            A.rez=sum*1.0/(A.paz.size()*1.0)*0.4+A.egz*0.6;  
-        else
-        {
-            sort (A.paz.begin(),A.paz.end());
-            if(A.paz.size()%2==1) A.rez= A.paz[A.paz.size()/2]*0.4+A.egz*0.6;
-            else  A.rez=((A.paz[A.paz.size()/2-1]+A.paz[A.paz.size()/2])/2.0)*0.4+A.egz*0.6;
-        }
+        A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);
-        A.paz.clear();
+        A.isvalyti_pazymius();
     }
 }
 void generavimasVisko(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
@@ -62,27 +54,19 @@ void generavimasVisko(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
             case 's': A.Pavarde=pavardes_v[dist(mt)]; break;
             default: A.Pavarde=pavardes_m[dist(mt)]; break;
         }
-        int temp, sum=0;
+        int temp;
         for(int ii=0;ii<n;ii++)
         {
             temp = dist(mt)+1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
             cout<<"Sugeneruotas "<<ii+1<<" pažymys: "<<temp<<endl;
             A.paz.push_back(temp);
-            sum+=temp;
         }
         
         A.egz = dist(mt)+1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
         cout<<"Sugeneruotas egzamino pažymys: "<<A.egz<<endl;
-        if(pasirinkimas == 1)
-            A.rez=sum*1.0/(A.paz.size()*1.0)*0.4+A.egz*0.6;  
-        else
-        {
-            sort (A.paz.begin(),A.paz.end());
-            if(A.paz.size()%2==1) A.rez= A.paz[A.paz.size()/2]*0.4+A.egz*0.6;
-            else  A.rez=((A.paz[A.paz.size()/2-1]+A.paz[A.paz.size()/2])/2.0)*0.4+A.egz*0.6;
-        }
+        A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);
-        A.paz.clear();
+       A.isvalyti_pazymius();
     
     }
 }    

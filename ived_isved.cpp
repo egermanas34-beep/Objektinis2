@@ -52,28 +52,10 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
             visi_pazymiai.pop_back(); // Pašaliname egzaminą iš pažymių vektoriaus, kad liktų tik semestro pažymiai
             A.paz = visi_pazymiai; // Priskiriame likusius pažymius studento pažymių vektoriui
 
-            int suma = 0;
-            for (int x : A.paz) //x yra kiekvienas pažymys studento pažymių vektoriuje, ir mes juos sumuojame, kad galėtume apskaičiuoti vidurkį
-            {
-                suma += x;
-            }
+            A.skaiciuoti_rezultata(pasirinkimas);
         
-            if(pasirinkimas == 1) 
-            A.rez = suma * 1.0 / (A.paz.size() * 1.0) * 0.4 + A.egz * 0.6; // Apskaičiuojame galutinį rezultatą pagal vidurkį
-            else
-            {
-                sort(A.paz.begin(), A.paz.end()); // Rikiuojame pažymius, kad galėtume rasti medianą
-                if (A.paz.size() % 2 == 1) 
-                {
-                    A.rez = A.paz[A.paz.size() / 2] * 0.4 + A.egz * 0.6; // Jei pažymių skaičius yra nelyginis, mediana yra vidurinis elementas
-                } 
-                else 
-                {
-                    A.rez = ((A.paz[A.paz.size() / 2 - 1] + A.paz[A.paz.size() / 2]) / 2.0) * 0.4 + A.egz * 0.6; // Jei pažymių skaičius yra lyginis, mediana yra dviejų vidurinių elementų vidurkis
-                }
-            }
-        
-            A.paz.clear(); // Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+            A.isvalyti_pazymius(); // Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+            
             grupe.push_back(A);
              m++;
         }
@@ -102,13 +84,12 @@ void inputas(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
         cout<<"Iš viso gali būti įvesta "<<Maxpazymiu<<" pažymių."<<endl;
         cout<<"Įveskite semestro pažymius : \n";
         int n = 1;
-        int temp, sum=0;
+        int temp;
         while (k!=0 && n<=Maxpazymiu)
         {
             
             temp = skaiciu_mastelis("Įveskite " + std::to_string(n) + " pažymį : ", 1, 10);
             A.paz.push_back(temp);
-            sum+=temp;
            
             cout<<"Jei norite įvesti dar viena pažymį, įveskite 1, jei ne - 0: ";
         
@@ -125,16 +106,9 @@ void inputas(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
         }
     
         A.egz = skaiciu_mastelis("Įveskite egzamino pažymį: ", 1, 10);
-        if(pasirinkimas == 1)
-            A.rez = sum*1.0/(A.paz.size()*1.0)*0.4+A.egz*0.6;
-        else
-        {
-            sort (A.paz.begin(),A.paz.end());
-            if(A.paz.size()%2==1) A.rez= A.paz[A.paz.size()/2]*0.4+A.egz*0.6;
-            else  A.rez=((A.paz[A.paz.size()/2-1]+A.paz[A.paz.size()/2])/2.0)*0.4+A.egz*0.6;
-        }
+        A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);// Pridedame studentą į grupę
-        A.paz.clear();// Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+        A.isvalyti_pazymius();// Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
         cout<<"Jei norite ivesti dar viena studenta, iveskite 1, jei ne - 0: ";
         cin>>m;
     }
@@ -157,7 +131,7 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
             out_f << fixed << setprecision(2);
             for (const auto &A : vargsiukai)
             {
-                out_f << left << setw(15) << A.Vardas << left << setw(30) << A.Pavarde << left << setw(45) << A.rez << '\n';
+                out_f << A << '\n';
                
             }
         }
@@ -168,7 +142,7 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
             out_f << fixed << setprecision(2);
             for (const auto &A : vargsiukai)
             {
-                out_f << left << setw(15) << A.Vardas << left << setw(30) << A.Pavarde << left << setw(45) << A.rez << '\n';
+                out_f << A << '\n';
                 
             }
         }
@@ -179,7 +153,7 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
             out_s << fixed << setprecision(2);
             for (const auto &A : smartukai)
             {
-                out_s << left << setw(15) << A.Vardas << left << setw(30) << A.Pavarde << left << setw(45) << A.rez << '\n';
+                out_s << A << '\n';
                
             }
         }
@@ -190,7 +164,7 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
             out_s << fixed << setprecision(2);
             for (const auto &A : smartukai)
             {
-                out_s << left << setw(15) << A.Vardas << left << setw(30) << A.Pavarde << left << setw(45) << A.rez << '\n';
+                out_s << A << '\n';
                 
             }
         }
@@ -208,7 +182,26 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
    
 
     
-    //spausdinti_i_srauta(cout);
+    if (pasirinkimas == 1)
+    {
+        cout << left << setw(15) << "Vardas:" << left << setw(30) << "Pavardė:" << left << setw(45) << "Galutinis(vid.):" << '\n';
+    }
+    else
+    {
+        cout << left << setw(15) << "Vardas:" << left << setw(30) << "Pavardė:" << left << setw(45) << "Galutinis(med.):" << '\n';
+    }
+    cout << " -------------------------------------------------------------------------------------------------------------------" << '\n';
+    cout << "Vargsiukai:" << '\n';
+    for (const auto &A : vargsiukai)
+    {
+        cout << A << '\n';
+    }
+    cout << '\n' << "Smartukai:" << '\n';
+    for (const auto &A : smartukai)
+    {
+        cout << A << '\n';
+    }
+
      std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;// Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
     //std::chrono::duration<double> yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.count() grąžina šią reikšmę, kurią mes išvedame į ekraną
     cout << "Duomenų išvedimas užtruko: " << diff.count() << " sekundžių." << endl;
