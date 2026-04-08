@@ -1,6 +1,9 @@
 #pragma once
 #include "bibliotekos.h"
 
+int skaiciu_mastelis(const string &prompt, int min_val, int max_val);
+string vardo_skaitymas(const string &prompt);
+
 class Studentas {
 public:
   string Vardas = "A", Pavarde = "B";
@@ -28,6 +31,47 @@ public:
 
   ~Studentas() = default;
 
+  void nuskaityti_ranka(int max_pazymiu)
+  {
+    Vardas = vardo_skaitymas("Įveskite studento vardą: ");
+    Pavarde = vardo_skaitymas("Įveskite studento pavardę: ");
+
+    paz.clear();
+    cout << "Iš viso gali būti įvesta " << max_pazymiu << " pažymių." << endl;
+    cout << "Įveskite semestro pažymius: " << endl;
+
+    int n = 1;
+    int temp = 0;
+    int k = 1;
+
+    while (k != 0 && n <= max_pazymiu) {
+      temp = skaiciu_mastelis("Įveskite " + std::to_string(n) + " pažymį: ", 1, 10);
+      paz.push_back(temp);
+
+      cout << "Jei norite įvesti dar vieną pažymį, įveskite 1, jei ne - 0: ";
+      k = skaiciu_mastelis("", 0, 1);
+      ++n;
+    }
+
+    egz = skaiciu_mastelis("Įveskite egzamino pažymį: ", 1, 10);
+  }
+
+  void nuskaityti_is_eilutes(std::istream& is)
+  {
+    paz.clear();
+    is >> Vardas >> Pavarde;
+
+    int pazymys = 0;
+    while (is >> pazymys) {
+      paz.push_back(pazymys);
+    }
+
+    if (!paz.empty()) {
+      egz = paz.back();
+      paz.pop_back();
+    }
+  }
+
 
   void skaiciuoti_rezultata(int pasirinkimas)
   {
@@ -45,9 +89,16 @@ public:
      
       return;
     }
-
+    
     
     sort(paz.begin(), paz.end());
+    for(int pazymys : paz)
+    {
+        if(pazymys==0)
+        {
+            paz.erase(std::remove(paz.begin(), paz.end(), pazymys), paz.end());
+        }
+    }
     if (paz.size() % 2 == 1) {
       mediana = paz[paz.size() / 2];
     } else {
@@ -61,29 +112,7 @@ public:
     paz.clear();
   }
   friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
-  friend std::istream& operator>>(std::istream& is, Studentas& s);
 };
-inline std::istream& operator>>(std::istream& is, Studentas& s)
-{
-  is >> s.Vardas >> s.Pavarde;
-  vector<int> visi_pazymiai;// Sukuriame vektorių, kuris saugos visus pažymius, įskaitant egzaminą
-  int pazymys;
-  while (is >> pazymys)
-  {
-    visi_pazymiai.push_back(pazymys);// Skaitome visus likusius skaičius kaip pažymius ir pridedame juos į vektorių
-  }
-
-  /*if (visi_pazymiai.size() < 2) // Tikriname, ar yra pakankamai pažymių (bent vienas pažymys ir egzaminas), ir jei ne, praleidžiame šį įrašą
-    {
-       continue;
-    }*/
-
-  s.egz = visi_pazymiai.back(); // Paskutinis pažymys yra egzaminas, todėl jį išskiriame ir priskiriame studento egzaminui
-  visi_pazymiai.pop_back(); // Pašaliname egzaminą iš pažymių vektoriaus, kad liktų tik semestro pažymiai
- s.paz = visi_pazymiai; // Priskiriame likusius pažymius studento pažymių vektoriui
-          
-  return is;
-}
 inline std::ostream& operator<<(std::ostream& os, const Studentas& s)
 {
     os << left << setw(15) << s.Vardas

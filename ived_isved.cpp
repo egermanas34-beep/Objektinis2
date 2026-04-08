@@ -30,7 +30,7 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 
             std::stringstream ss(eil);// Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
             Studentas A;
-            ss>>A;// Skaitome pirmus du žodžius kaip studento vardą ir pavardę
+            A.nuskaityti_is_eilutes(ss); // Skaitome eilutę į Studentas objektą per klasės metodą
             if (A.Vardas.empty() || A.Pavarde.empty()) 
             {
                 continue;
@@ -60,36 +60,10 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 void inputas(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
 {
     int m = 1; // Pradinis studentų kiekis, nustatomas į 1, kad įvesties ciklas prasidėtų
-    int k = 1; // Pradinis pažymių kiekis, nustatomas į 1, kad įvesties ciklas prasidėtų
+     // Pradinis pažymių kiekis, nustatomas į 1, kad įvesties ciklas prasidėtų
     while (m!=0)
     {
-        A.Vardas = vardo_skaitymas("Įveskite studento vardą: ");
-        A.Pavarde = vardo_skaitymas("Įveskite studento pavardę: ");
-        cout<<"Iš viso gali būti įvesta "<<Maxpazymiu<<" pažymių."<<endl;
-        cout<<"Įveskite semestro pažymius : \n";
-        int n = 1;
-        int temp;
-        while (k!=0 && n<=Maxpazymiu)
-        {
-            
-            temp = skaiciu_mastelis("Įveskite " + std::to_string(n) + " pažymį : ", 1, 10);
-            A.paz.push_back(temp);
-           
-            cout<<"Jei norite įvesti dar viena pažymį, įveskite 1, jei ne - 0: ";
-        
-            k=skaiciu_mastelis("", 0, 1);
-            
-            n++;
-        }
-        if(pasirinkimas==1 && n<Maxpazymiu) 
-        {
-            for(int i=0;i<Maxpazymiu-n;i++)
-            {
-            A.paz.push_back(0);
-            }
-        }
-    
-        A.egz = skaiciu_mastelis("Įveskite egzamino pažymį: ", 1, 10);
+        A.nuskaityti_ranka(Maxpazymiu); // Rankinis įvedimas per klasės metodą
         A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);// Pridedame studentą į grupę
         A.isvalyti_pazymius();// Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
