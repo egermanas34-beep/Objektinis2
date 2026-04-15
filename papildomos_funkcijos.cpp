@@ -80,11 +80,12 @@ void studentoLygis(StudentuGrupe &grupe, StudentuGrupe &vargsiukai, StudentuGrup
     else if (rusiavimas == 2) 
     {
         // 2 strategija: vienu perėjimu vargsiukus perkeliame, o iš grupes ištriname.
-       for(const auto &A :grupe)
+       for(auto it = grupe.rbegin(); it != grupe.rend(); ++it) // Naudojame reverse iterator, kad galėtume saugiai trinti elementus iš grupės, nes std::vector ir std::deque iteratoriaus invalidacija įvyksta, kai triname elementus, o reverse iterator leidžia mums saugiai iteruoti atgal ir trinti elementus be rizikos sugadinti iteratorių.
        {
+           const auto &A = *it;
+       
             if(A.rez<5.0) {vargsiukai.push_back(A); grupe.pop_back();}
-            
-       }
+        }
          smartukai = grupe; // likusi grupė yra smartukai
     }
    else if( rusiavimas == 3)
