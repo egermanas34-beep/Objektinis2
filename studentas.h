@@ -14,8 +14,11 @@ public:
   double rez = 0.0;
   string lygis;
 
-  Studentas() = default;// Naudojame numatytąjį konstruktorių, kuris leidžia sukurti tuščią Studentas objektą
-  Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas)// Konstruktorius, kuris leidžia sukurti Studentas objektą su visais duomenimis
+  Studentas()
+  {
+
+  }// Naudojame numatytąjį konstruktorių, kuris leidžia sukurti tuščią Studentas objektą
+ /* Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas)// Konstruktorius, kuris leidžia sukurti Studentas objektą su visais duomenimis
       : Vardas(vardas), Pavarde(pavarde), paz(pazymiai), egz(egzaminas) {}
 
   Studentas(const string& vardas, const string& pavarde, const vector<int>& pazymiai, int egzaminas, int pasirinkimas)// Konstruktorius, kuris leidžia sukurti Studentas objektą su visais duomenimis ir iš karto apskaičiuoti rezultatą
@@ -28,8 +31,8 @@ public:
   Studentas(Studentas&&) noexcept = default;// Naudojame numatytąjį perkelimo konstruktorių, kuris leidžia sukurti Studentas objektą perkelti kitą Studentas objektą
   Studentas& operator=(const Studentas&) = default;// Naudojame numatytąjį kopijavimo priskyrimo operatorių, kuris leidžia priskirti vieną Studentas objektą kitam Studentas objektui
   Studentas& operator=(Studentas&&) noexcept = default;// Naudojame numatytąjį perkelimo priskyrimo operatorių, kuris leidžia priskirti vieną Studentas objektą kitam Studentas objektui perkelti
-
-  ~Studentas() = default;// Naudojame numatytąjį destruktorių, kuris leidžia sunaikinti Studentas objektą, kai jis nebereikalingas
+*/
+  ~Studentas() {}// Naudojame numatytąjį destruktorių, kuris leidžia sunaikinti Studentas objektą, kai jis nebereikalingas
 
   void nuskaityti_ranka(int max_pazymiu)
   {
