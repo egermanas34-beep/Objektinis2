@@ -14,9 +14,9 @@ static void rikiuoti(std::list<Studentas> &grupe, Compare comp) // Specializacij
 void rikiavimas(StudentuGrupe &grupe, int &rik)
 {
     // Lambda comparatoriai
-    auto compare_vardas = [](const Studentas &a, const Studentas &b) { return a.Vardas > b.Vardas; };
-    auto compare_pavarde = [](const Studentas &a, const Studentas &b) { return a.Pavarde > b.Pavarde; };
-    auto compare_rez = [](const Studentas &a, const Studentas &b) { return a.rez > b.rez; };
+    auto compare_vardas = [](const Studentas &a, const Studentas &b) { return a.getVardas() > b.getVardas(); };
+    auto compare_pavarde = [](const Studentas &a, const Studentas &b) { return a.getPavarde() > b.getPavarde(); };
+    auto compare_rez = [](const Studentas &a, const Studentas &b) { return a.Rezultatas() > b.Rezultatas(); };
 
     // list naudos list::sort(), o vector/deque naudos std::sort()
     if (rik == 1) {
@@ -73,7 +73,7 @@ void studentoLygis(StudentuGrupe &grupe, StudentuGrupe &vargsiukai, StudentuGrup
         // 1 strategija: visi studentai lieka grupes, kopijuojami į vargsiukai ir smartukai
         for (const auto &A : grupe) 
         {
-            if (A.rez < 5.0) vargsiukai.push_back(A);
+            if (A.Rezultatas() < 5.0) vargsiukai.push_back(A);
             else smartukai.push_back(A);
         }
     }
@@ -84,14 +84,14 @@ void studentoLygis(StudentuGrupe &grupe, StudentuGrupe &vargsiukai, StudentuGrup
        {
            const auto &A = *it;
        
-            if(A.rez<5.0) {vargsiukai.push_back(A); grupe.pop_back();}
+            if(A.Rezultatas() < 5.0) {vargsiukai.push_back(A); grupe.pop_back();}
         }
          smartukai = grupe; // likusi grupė yra smartukai
     }
    else if( rusiavimas == 3)
    {
        // 3 strategija: dalijame su partition, vargsiukus perkeliame, grupėje paliekame tik smartukus.
-       auto border = std::partition(grupe.begin(), grupe.end(), [](const Studentas &A) { return A.rez >= 5.0; }); 
+       auto border = std::partition(grupe.begin(), grupe.end(), [](const Studentas &A) { return A.Rezultatas() >= 5.0; }); 
 
        std::copy(border, grupe.end(), std::back_inserter(vargsiukai)); // Kopijuojame vargsiukus į atskirą konteinerį, naudojant std::copy ir std::back_inserter, kuris prideda elementus į vargsiukai konteinerio pabaigą.
        grupe.erase(border, grupe.end());// Iš grupės ištriname vargsiukus, palikdami tik smartukus.

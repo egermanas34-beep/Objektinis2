@@ -5,8 +5,8 @@ void generavimasSk(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
     int m = skaiciu_mastelis("Kiek yra studentų? ", 1, 1000);
     for(int i=0;i<m;i++)
     {
-        A.Vardas = vardo_skaitymas("Įveskite studento vardą: ");
-        A.Pavarde = vardo_skaitymas("Įveskite studento pavardę: ");
+        A.setVardas(vardo_skaitymas("Įveskite studento vardą: "));
+        A.setPavarde(vardo_skaitymas("Įveskite studento pavardę: "));
         cout<<"Iš viso gali būti įvesta "<<Maxpazymiu<<" pažymių."<<endl;
         cout<<"Įveskite semestro pažymius : \n";
         int n = skaiciu_mastelis("Kiek pažymių norite sugeneruoti? ", 1, Maxpazymiu);
@@ -15,18 +15,18 @@ void generavimasSk(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
         {
             temp = rand() % 10 + 1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
             cout<<"Sugeneruotas "<<ii+1<<" pažymys: "<<temp<<endl;
-            A.paz.push_back(temp);
+            A.setPaz(temp);
         }
         if(pasirinkimas==1 && n<Maxpazymiu) 
         {
             for(int ii=0;ii<Maxpazymiu-n;ii++)
             {
-            A.paz.push_back(0);
+            A.setPaz(0);
             }
         }
 
-        A.egz = rand() % 10 + 1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
-        cout<<"Sugeneruotas egzamino pažymys: "<<A.egz<<endl;
+        A.setEgz(rand() % 10 + 1); // Generuoja atsitiktinius skaičius nuo 1 iki 10
+        cout<<"Sugeneruotas egzamino pažymys: "<<A.getEgz()<<endl;
         A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);
         A.isvalyti_pazymius();
@@ -47,23 +47,23 @@ void generavimasVisko(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
         int n = skaiciu_mastelis("", 1, Maxpazymiu);
     for(int i=0;i<m;i++)
     {
-        A.Vardas=vardai[dist(mt)];
-        switch(*A.Vardas.rbegin())//pasirenkame pavarde pagal vardo gala
+        A.setVardas(vardai[dist(mt)]);
+        switch(*A.getVardas().rbegin())//pasirenkame pavarde pagal vardo gala
         {
             
-            case 's': A.Pavarde=pavardes_v[dist(mt)]; break;
-            default: A.Pavarde=pavardes_m[dist(mt)]; break;
+            case 's': A.setPavarde(pavardes_v[dist(mt)]); break;
+            default: A.setPavarde(pavardes_m[dist(mt)]); break;
         }
         int temp;
         for(int ii=0;ii<n;ii++)
         {
             temp = dist(mt)+1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
             cout<<"Sugeneruotas "<<ii+1<<" pažymys: "<<temp<<endl;
-            A.paz.push_back(temp);
+            A.setPaz(temp);
         }
         
-        A.egz = dist(mt)+1; // Generuoja atsitiktinius skaičius nuo 1 iki 10
-        cout<<"Sugeneruotas egzamino pažymys: "<<A.egz<<endl;
+        A.setEgz(dist(mt)+1); // Generuoja atsitiktinius skaičius nuo 1 iki 10
+        cout<<"Sugeneruotas egzamino pažymys: "<<A.getEgz()<<endl;
         A.skaiciuoti_rezultata(pasirinkimas);
         grupe.push_back(A);
        A.isvalyti_pazymius();
