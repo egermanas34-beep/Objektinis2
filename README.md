@@ -3,10 +3,10 @@
 Buvo atliktas testas tam ,kad palyginti programos naudojancios struct is ankstesniojo darbo(v1.0) ir naudojancio class tipo Studentus is dabartines realizacijos sparta (veikimo laika), naudojant viena fiksuota konteiner - vektoriu, 3 dalijimo strategija ir 100000 ir 1000000 dydzio failus.
 |           | failo dydis | laikas(s) |
 |-----------|-------------|-----------|
-| Klase     | 100000      | 0.6402    |
+| Klase     | 100000      | 0.7402    |
 | Struktura | 100000      | 0.6768    |
 | Klase     | 1000000     | 6.449     |
-| Struktura | 1000000     | 6.86      |
+| Struktura | 1000000     | 7,58      |
 
 Po sio testo matome, kad programa naudojanti class, o ne struct, veikia truputi greiciau.		
 ## 2 testas
