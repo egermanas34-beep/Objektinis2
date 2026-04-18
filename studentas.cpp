@@ -11,7 +11,7 @@ Studentas::~Studentas()
   mediana = 0.0;
   rez = 0.0;
   lygis = "nepriskirtas";
-  cout<<"studentas sunaikintas"<<endl;
+ 
 };
  void Studentas::nuskaityti_ranka(int max_pazymiu)
   {
