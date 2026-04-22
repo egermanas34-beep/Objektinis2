@@ -1,7 +1,14 @@
 #include "studentas.h"
 
 //konstruktoriaus realizacija
-Studentas::Studentas()  {Vardas = "nepriskirtas"; Pavarde = "nepriskirtas";egz = 0; vidurkis = 0.0; mediana = 0.0; rez = 0.0; lygis = "nepriskirtas";};
+Studentas::Studentas()  
+{
+  Vardas = "nepriskirtas"; 
+  Pavarde = "nepriskirtas";
+  egz = 0; vidurkis = 0.0;
+  mediana = 0.0; rez = 0.0;
+  lygis = "nepriskirtas";
+  };
 Studentas::~Studentas()
 {
   Vardas =  "nepriskirtas";
@@ -13,6 +20,24 @@ Studentas::~Studentas()
   lygis = "nepriskirtas";
  
 };
+/* copy konstruktorius
+1. isakiriama nauja vieta
+2. perkopijuoja reiksmes is v 
+*/
+Studentas::Studentas(const Studentas& s): 
+  Vardas(s.Vardas), 
+  Pavarde(s.Pavarde), 
+  paz(s.paz), 
+  egz(s.egz), 
+  vidurkis(s.vidurkis), 
+  mediana(s.mediana), 
+  rez(s.rez), 
+  lygis(s.lygis) 
+  {
+    
+  }
+  /* move konstruktorius*/
+  
  void Studentas::nuskaityti_ranka(int max_pazymiu)
   {
     Vardas = vardo_skaitymas("Įveskite studento vardą: ");
