@@ -25,19 +25,61 @@ Studentas::~Studentas()
 2. perkopijuoja reiksmes is v 
 */
 Studentas::Studentas(const Studentas& s): 
-  Vardas(s.Vardas), 
-  Pavarde(s.Pavarde), 
-  paz(s.paz), 
-  egz(s.egz), 
-  vidurkis(s.vidurkis), 
-  mediana(s.mediana), 
-  rez(s.rez), 
-  lygis(s.lygis) 
+  Vardas{s.Vardas}, 
+  Pavarde{s.Pavarde}, 
+  paz{s.paz}, 
+  egz{s.egz}, 
+  vidurkis{s.vidurkis}, 
+  mediana{s.mediana}, 
+  rez{s.rez}, 
+  lygis{s.lygis} 
   {
     
   }
-  /* move konstruktorius*/
-  
+  /* move konstruktorius
+  1."pavagiame" reiksmes is s
+  */
+  Studentas::Studentas(Studentas&& s): 
+  Vardas{std::move(s.Vardas)}, 
+  Pavarde{std::move(s.Pavarde)}, 
+  paz{std::move(s.paz)}, 
+  egz{s.egz}, 
+  vidurkis{s.vidurkis}, 
+  mediana{s.mediana}, 
+  rez{s.rez}, 
+  lygis{std::move(s.lygis)} 
+  {
+    
+  }
+  //copy proskyrimas
+  Studentas& Studentas::operator=(const Studentas& s)
+{
+  if(&s == this) return *this;
+  Vardas = s.Vardas;
+  Pavarde = s.Pavarde;
+  paz = s.paz;
+  egz = s.egz;
+  vidurkis = s.vidurkis;
+  mediana = s.mediana;
+  rez = s.rez;
+  lygis = s.lygis;
+  return *this;
+}
+//move priskyrimas
+Studentas& Studentas::operator=(Studentas &&s)
+{
+if(&s == this) return *this;
+  Vardas = std::move(s.Vardas);
+  Pavarde = std::move(s.Pavarde);
+  paz = std::move(s.paz);
+  egz = s.egz;
+  vidurkis = s.vidurkis;
+  mediana = s.mediana;
+  rez = s.rez;
+  lygis = std::move(s.lygis);
+  return *this;
+}
+
  void Studentas::nuskaityti_ranka(int max_pazymiu)
   {
     Vardas = vardo_skaitymas("Įveskite studento vardą: ");
