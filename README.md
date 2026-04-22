@@ -12,5 +12,6 @@ generavimasVisko visi duomenys yra sugeneruojami automatiskai.
 Šiose funkcijose naudojami klasės metodai (setVardas, setPavarde, setPaz, setEgz) duomenims priskirti.
 ##Programos testavimas
 Buvo atliktas testas patikrinti, per kiek laiko bus nuskaitomas failas su 1,000,000 irasu, bei isvedimas jau suskirscius studentus i vargsciukus ir smartukus. Abu sie procesai buvo vykdomi naudojantis isvedimo ir nuskaitymo operatoriais.
+
 studentai_1000000.txt nuskaitymo ir apdorojimo laikas: 3.04705 s
 Duomenų išvedimas užtruko: 2.69627 sekundžių.
