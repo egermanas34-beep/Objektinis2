@@ -19,10 +19,10 @@ public:
  
 
   Studentas();//default konstruktorius
-  inline const string& getVardas() const { return Vardas; } // inline getteriai
-  inline const string& getPavarde() const { return Pavarde; }
-  inline const vector<int>& getPaz() const { return paz; }
-  inline int getEgz() const { return egz; }
+  const string& getVardas() const { return Vardas; } // getteriai
+  const string& getPavarde() const { return Pavarde; }
+  const vector<int>& getPaz() const { return paz; }
+  int getEgz() const { return egz; }
   double Rezultatas() const {return rez;} //getteris
   std::istream& readStudent(std::istream&); //setteris
   
@@ -39,7 +39,12 @@ public:
     egz = e;
   }
   
-  ~Studentas(); 
+
+  Studentas(const Studentas& s); //copy konstruktorius
+  Studentas(Studentas&& s); // move konstruktorius
+  Studentas& operator=(const Studentas& s); //copy priskyrimas = 
+  Studentas& operator=(Studentas&& s); // move priskyrimas =
+  ~Studentas(); //destruktorius
 
 
   void nuskaityti_ranka(int max_pazymiu);
