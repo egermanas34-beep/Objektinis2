@@ -1,18 +1,19 @@
 #include "studentas.h"
 
 //konstruktoriaus realizacija
-Studentas::Studentas()  {Vardas = "nepriskirtas"; Pavarde = "nepriskirtas";egz = 0; vidurkis = 0.0; mediana = 0.0; rez = 0.0; lygis = "nepriskirtas";};
+Studentas::Studentas()  
+{
+  Vardas = "nepriskirtas"; 
+  Pavarde = "nepriskirtas";
+  egz = 0; vidurkis = 0.0;
+  mediana = 0.0; rez = 0.0;
+  lygis = "nepriskirtas";
+  };
 Studentas::~Studentas()
 {
-  Vardas =  "nepriskirtas";
-  Pavarde = "nepriskirtas";
-  egz = 0;
-  vidurkis = 0.0;
-  mediana = 0.0;
-  rez = 0.0;
-  lygis = "nepriskirtas";
  
 };
+
  void Studentas::nuskaityti_ranka(int max_pazymiu)
   {
     Vardas = vardo_skaitymas("Įveskite studento vardą: ");
