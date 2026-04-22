@@ -52,6 +52,7 @@ public:
   void skaiciuoti_rezultata(int pasirinkimas);
   void isvalyti_pazymius();
   friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
+  friend std::istream& operator>>(std::istream& is, Studentas& s);
 };
 
 

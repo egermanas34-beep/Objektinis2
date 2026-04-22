@@ -11,13 +11,6 @@ Studentas::Studentas()
   };
 Studentas::~Studentas()
 {
-  Vardas =  "nepriskirtas";
-  Pavarde = "nepriskirtas";
-  egz = 0;
-  vidurkis = 0.0;
-  mediana = 0.0;
-  rez = 0.0;
-  lygis = "nepriskirtas";
  
 };
 /* copy konstruktorius
@@ -162,4 +155,22 @@ void Studentas::isvalyti_pazymius()
        << left << setw(30) << s.Pavarde
        << left << setw(45) << fixed << setprecision(2) << s.rez;
     return os;
+}
+std::istream& operator>>(std::istream& is, Studentas& s)
+{
+    is >> s.Vardas >> s.Pavarde;
+
+    s.paz.clear();
+    int pazymys;
+
+    while (is >> pazymys) {
+        s.paz.push_back(pazymys);
+    }
+
+    if (!s.paz.empty()) {
+        s.egz = s.paz.back();
+        s.paz.pop_back();
+    }
+
+    return is;
 }
