@@ -4,7 +4,17 @@
 
 int skaiciu_mastelis(const string &prompt, int min_val, int max_val);
 string vardo_skaitymas(const string &prompt);
-
+class Zmogus {
+  protected:
+  string Vardas;
+  string Pavarde;
+  public:
+ Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { std::cout<<"Zmogus K.\n";}
+  string getVardas() const { return Vardas; }
+  string getPavarde() const { return Pavarde; }
+  ~Zmogus() {}; //destruktorius
+ 
+};
 class Studentas {
   private:
   string Vardas;
