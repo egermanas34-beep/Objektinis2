@@ -12,13 +12,13 @@ class Zmogus {
  Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { std::cout<<"Zmogus K.\n";}
   string getVardas() const { return Vardas; }
   string getPavarde() const { return Pavarde; }
-  ~Zmogus() {}; //destruktorius
+  ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
  
 };
-class Studentas {
+class Studentas : public Zmogus {
   private:
-  string Vardas;
-  string Pavarde;
+  //string Vardas;
+  //string Pavarde;
   vector<int> paz;
   int egz;
   double vidurkis;
