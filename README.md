@@ -19,5 +19,5 @@ studentai_1000000.txt nuskaitymo ir apdorojimo laikas: 3.04705 s
 Duomenų išvedimas užtruko: 2.69627 sekundžių.
 ## kas naujo v1.5
 ### sukurta bazine klase Zmogus
-Klaseje Zmogus yra saugomi zmogaus vardas ir pavarde, kurie yra saugomi kaip protected nariai.
+Klaseje Zmogus yra saugomi zmogaus vardas ir pavarde, kurie yra saugomi kaip protected nariai. Taip pat buvo padaryta taip, kad sia bazine klase galetu pasiekti tik paveldincios ja klases ir taip buvo patikrinta tyrimasKlasesMetodams funkcoijoje, kai buvo bandoma priskirti tiesiogiai Zmogui varda ir pavarde.
 
