@@ -1,17 +1,85 @@
+
 #pragma once
 #include "bibliotekos.h"
 
-struct Studentas {
-  string Vardas="A", Pavarde="B";
+int skaiciu_mastelis(const string &prompt, int min_val, int max_val);
+string vardo_skaitymas(const string &prompt);
+class Zmogus {
+  protected:
+  string Vardas;
+  string Pavarde;
+  public:
+ Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
+  string getVardas() const { return Vardas; }
+  string getPavarde() const { return Pavarde; }
+  virtual void info() const {
+    cout << Vardas << " " << Pavarde;
+}
+
+  ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
+ 
+};
+class Studentas : public Zmogus {
+  private:
+  //string Vardas;
+  //string Pavarde;
   vector<int> paz;
   int egz;
   double vidurkis;
   double mediana;
   double rez;
   string lygis;
+public:
+ 
+
+  Studentas();//default konstruktorius
+  void info() const override {
+    cout << getVardas() << " " << getPavarde();
+}
+
+  const string& getVardas() const { return Vardas; } // getteriai
+  const string& getPavarde() const { return Pavarde; }
+  const vector<int>& getPaz() const { return paz; }
+  int getEgz() const { return egz; }
+  double Rezultatas() const {return rez;} //getteris
+  std::istream& readStudent(std::istream&); //setteris
+  
+  void setVardas(const string& v) {
+    Vardas = v;
+  }
+  void setPavarde(const string& p) {
+    Pavarde = p;
+  }
+  void setPaz(int p) {
+    paz.push_back(p);
+  }
+  void setEgz(int e) {
+    egz = e;
+  }
+  
+
+  Studentas(const Studentas& s); //copy konstruktorius
+  Studentas(Studentas&& s); // move konstruktorius
+  Studentas& operator=(const Studentas& s); //copy priskyrimas = 
+  Studentas& operator=(Studentas&& s); // move priskyrimas =
+  ~Studentas(); //destruktorius
+
+
+  void nuskaityti_ranka(int max_pazymiu);
+  void nuskaityti_is_eilutes(std::istream& is);
+  void skaiciuoti_rezultata(int pasirinkimas);
+  void isvalyti_pazymius();
+  friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
+  friend std::istream& operator>>(std::istream& is, Studentas& s);
+ friend std::ofstream& operator<<(std::ofstream& os, const Studentas& s);
 };
+
+
+
+
 //sukurti alias StudentuGrupe, kuri galima nuadoti kaip vektoriu, lista arba deque tipo konteineri, tam, kad patikrinti programos sparta, su skirtingo tipo konteineriais.
-//using StudentuGrupe = std::vector<Studentas>;  // vector
+using StudentuGrupe = std::vector<Studentas>;  // vector
 //using StudentuGrupe = std::list<Studentas>;      // list
-using StudentuGrupe = std::deque<Studentas>;   // deque
+//using StudentuGrupe = std::deque<Studentas>;   // deque
 const int Maxpazymiu=20;
+const int Maxstudentu=10000000;
