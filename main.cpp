@@ -20,18 +20,22 @@ system("powershell ls studentai*.txt");
     StudentuGrupe grupe;
     StudentuGrupe vargsiukai;
     StudentuGrupe smartukai;
+    //grupe.reserve(Maxstudentu);
+    //vargsiukai.reserve(Maxstudentu);
+    //smartukai.reserve(Maxstudentu);
     int pasirinkimas;
     int isvedimas;
     int m;
    
-    cout<<"Ką jūs norite padaryti? \n 1 - rankiniu būdu įvesti studentus \n 2 - generuoti tik pažymius \n 3 - generuoti vardus su pažymiais \n 4 - nuskaityti iš failo \n 5 -baigti darbą \n 6 -generuoti failą \n 7- testuoti generuojant failus(daryti kai nera failų) \n 8 - testuoti visa programa \n Pasirinkite: ";
-    int veiksmas = skaiciu_mastelis("", 1, 8);
+    cout<<"Ką jūs norite padaryti? \n 1 - rankiniu būdu įvesti studentus \n 2 - generuoti tik pažymius \n 3 - generuoti vardus su pažymiais \n 4 - nuskaityti iš failo \n 5 -baigti darbą \n 6 -generuoti failą \n 7- testuoti generuojant failus(daryti kai nera failų) \n 8 - testuoti visa programa \n 9 - testuoti klasės metodus \n Pasirinkite: ";
+    int veiksmas = skaiciu_mastelis("", 1, 9);
     if(veiksmas==5) return 0;
     if(veiksmas==6)
-   {int n =skaiciu_mastelis("Kiek yra studentų? ", 1, 10000000);
+   {int n =skaiciu_mastelis("Kiek yra studentų? ", 1, 100000);
     failuGeneravimas( n); return 0;}
     if(veiksmas==7) {tyrimasFailoKurimas(); return 0;}
     if(veiksmas==8) {tyrimasVisasProcesas(); return 0;}
+    if(veiksmas==9) {tyrimasKlasesMetodams(); return 0;}
     cout<<"Kaip norite apskaičiuoti galutinį balą? \n 1 - pagal vidurkį \n 2 - pagal medianą \n Pasirinkite: ";
     pasirinkimas = skaiciu_mastelis("", 1, 2);  
     cout<<"Kaip norite rikiuoti rezultatus? \n 1 - pagal vardą \n 2 - pagal pavardę \n 3 - pagal galutinį balą \n Pasirinkite: ";

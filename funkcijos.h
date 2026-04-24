@@ -16,5 +16,5 @@ double skaiciu_skaitymas(const string &prompt, double min_val, double max_val);
 void rikiavimas(StudentuGrupe &grupe, int &pasirinkimas);
 void studentoLygis(StudentuGrupe &grupe, StudentuGrupe &vargsiukai, StudentuGrupe &smartukai, int &rusiavimas);
 void tyrimasFailoKurimas();
-void tyrimasFailoKurimas();
 void tyrimasVisasProcesas();
+void tyrimasKlasesMetodams();

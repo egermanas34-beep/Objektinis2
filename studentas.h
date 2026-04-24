@@ -9,7 +9,7 @@ class Zmogus {
   string Vardas;
   string Pavarde;
   public:
- Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { std::cout<<"Zmogus K.\n";}
+ Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
   string getVardas() const { return Vardas; }
   string getPavarde() const { return Pavarde; }
   ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
@@ -63,6 +63,7 @@ public:
   void isvalyti_pazymius();
   friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
   friend std::istream& operator>>(std::istream& is, Studentas& s);
+ friend std::ofstream& operator<<(std::ofstream& os, const Studentas& s);
 };
 
 
@@ -73,3 +74,4 @@ using StudentuGrupe = std::vector<Studentas>;  // vector
 //using StudentuGrupe = std::list<Studentas>;      // list
 //using StudentuGrupe = std::deque<Studentas>;   // deque
 const int Maxpazymiu=20;
+const int Maxstudentu=10000000;
