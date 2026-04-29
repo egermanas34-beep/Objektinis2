@@ -8,10 +8,16 @@ class Zmogus {
   protected:
   string Vardas;
   string Pavarde;
+  Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
+  
+  
   public:
- Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
-  string getVardas() const { return Vardas; }
+ string getVardas() const { return Vardas; }
   string getPavarde() const { return Pavarde; }
+  virtual void info() const {
+    cout << Vardas << " " << Pavarde;
+}
+
   ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
  
 };
@@ -29,6 +35,10 @@ public:
  
 
   Studentas();//default konstruktorius
+  void info() const override {
+    cout << getVardas() << " " << getPavarde();
+}
+
   const string& getVardas() const { return Vardas; } // getteriai
   const string& getPavarde() const { return Pavarde; }
   const vector<int>& getPaz() const { return paz; }

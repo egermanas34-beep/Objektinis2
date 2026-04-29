@@ -26,7 +26,7 @@ system("powershell ls studentai*.txt");
     int pasirinkimas;
     int isvedimas;
     int m;
-   
+  //Zmogus z;
     cout<<"Ką jūs norite padaryti? \n 1 - rankiniu būdu įvesti studentus \n 2 - generuoti tik pažymius \n 3 - generuoti vardus su pažymiais \n 4 - nuskaityti iš failo \n 5 -baigti darbą \n 6 -generuoti failą \n 7- testuoti generuojant failus(daryti kai nera failų) \n 8 - testuoti visa programa \n 9 - testuoti klasės metodus \n Pasirinkite: ";
     int veiksmas = skaiciu_mastelis("", 1, 9);
     if(veiksmas==5) return 0;

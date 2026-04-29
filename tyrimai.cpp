@@ -41,11 +41,14 @@ void tyrimasKlasesMetodams()
     std::cout << "s5: " << s5 << "\n\n";
     std::cout<<"s1"<<s1<<"\n\n"; // s1 turėtų būti tuščias arba "nulintas" po move konstruktoriaus
     // 4. Move priskyrimo operatoriaus testas
+    
     Studentas s6;
     s6 = std::move(s2);
     std::cout << "Po move priskyrimo (s6 = std::move(s2)):\n";
     std::cout << "s6: " << s6 << "\n\n";
-
+   // Zmogus z1{"Tomas", "Tomaitis"};
+   // std::cout << "Zmogus z1:\n";
+   // std::cout << "Vardas: " << z1.getVardas() << ", Pavardė: " << z1.getPavarde() << "\n";
   
 }
 
