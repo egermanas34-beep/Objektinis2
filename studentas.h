@@ -10,15 +10,23 @@ class Zmogus {
   string Pavarde;
   Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
   
-  
   public:
- string getVardas() const { return Vardas; }
-  string getPavarde() const { return Pavarde; }
-  virtual void info() const {
-    cout << Vardas << " " << Pavarde;
-}
-
-  ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
+  virtual string getVardas() const { return Vardas; }
+  virtual string getPavarde() const { return Pavarde; }
+ 
+// virtual'i funkcija
+    virtual void whoAmI() const = 0;
+  // Overloadint'a (kita) virtuali whoAmI() funkcija
+    virtual std::ostream& whoAmI(std::ostream& out) const {
+        out << "Aš esu " << Vardas << " iš Base klasės\n";
+        return out;
+    }
+  // Overloadint'as operator<< kaip friend funkcija, o dešininis operandas yra Base&
+    friend std::ostream& operator<<(std::ostream &out, const Zmogus &z) {
+        // Visą darbą atliks whoAmI() funkcija, kuri yra virtuali!
+        return z.whoAmI(out);
+    }
+  virtual ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
  
 };
 class Studentas : public Zmogus {
@@ -35,14 +43,15 @@ public:
  
 
   Studentas();//default konstruktorius
-  void info() const override {
-    cout << getVardas() << " " << getPavarde();
-}
+ 
+void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas klasės\n"; }
+    virtual std::ostream& whoAmI(std::ostream& out) const {
+        out << "Aš esu " << getVardas() << " iš Studentas klasės\n";
+        return out;
+    }
 
-  const string& getVardas() const { return Vardas; } // getteriai
-  const string& getPavarde() const { return Pavarde; }
-  const vector<int>& getPaz() const { return paz; }
-  int getEgz() const { return egz; }
+  const vector<int>& getPaz() const { return paz; } //getteris
+  int getEgz() const { return egz; } //getteris
   double Rezultatas() const {return rez;} //getteris
   std::istream& readStudent(std::istream&); //setteris
   

@@ -46,6 +46,11 @@ void tyrimasKlasesMetodams()
     s6 = std::move(s2);
     std::cout << "Po move priskyrimo (s6 = std::move(s2)):\n";
     std::cout << "s6: " << s6 << "\n\n";
+
+    Studentas s7; 
+    s7.setVardas("Asta");
+    s7.setPavarde("Astaitė");   
+   s7.whoAmI();
    // Zmogus z1{"Tomas", "Tomaitis"};
    // std::cout << "Zmogus z1:\n";
    // std::cout << "Vardas: " << z1.getVardas() << ", Pavardė: " << z1.getPavarde() << "\n";
