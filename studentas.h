@@ -4,11 +4,35 @@
 
 int skaiciu_mastelis(const string &prompt, int min_val, int max_val);
 string vardo_skaitymas(const string &prompt);
-
-class Studentas {
-  private:
+class Zmogus {
+  protected:
   string Vardas;
   string Pavarde;
+  Zmogus(string v = "", string p = "") : Vardas{v}, Pavarde{p} { Vardas=v; Pavarde=p; /*std::cout<<"Zmogus K.\n";*/ }
+  
+  public:
+  virtual string getVardas() const { return Vardas; }
+  virtual string getPavarde() const { return Pavarde; }
+ 
+// virtual'i funkcija
+    virtual void whoAmI() const = 0;
+  // Overloadint'a (kita) virtuali whoAmI() funkcija
+    virtual std::ostream& whoAmI(std::ostream& out) const {
+        out << "Aš esu " << Vardas << " iš Base klasės\n";
+        return out;
+    }
+  // Overloadint'as operator<< kaip friend funkcija, o dešininis operandas yra Base&
+    friend std::ostream& operator<<(std::ostream &out, const Zmogus &z) {
+        // Visą darbą atliks whoAmI() funkcija, kuri yra virtuali!
+        return z.whoAmI(out);
+    }
+  virtual ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
+ 
+};
+class Studentas : public Zmogus {
+  private:
+  //string Vardas;
+  //string Pavarde;
   vector<int> paz;
   int egz;
   double vidurkis;
@@ -19,10 +43,15 @@ public:
  
 
   Studentas();//default konstruktorius
-  const string& getVardas() const { return Vardas; } // getteriai
-  const string& getPavarde() const { return Pavarde; }
-  const vector<int>& getPaz() const { return paz; }
-  int getEgz() const { return egz; }
+ 
+void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas klasės\n"; }
+    virtual std::ostream& whoAmI(std::ostream& out) const {
+        out << "Aš esu " << getVardas() << " iš Studentas klasės\n";
+        return out;
+    }
+
+  const vector<int>& getPaz() const { return paz; } //getteris
+  int getEgz() const { return egz; } //getteris
   double Rezultatas() const {return rez;} //getteris
   std::istream& readStudent(std::istream&); //setteris
   
@@ -40,7 +69,10 @@ public:
   }
   
 
-
+  Studentas(const Studentas& s); //copy konstruktorius
+  Studentas(Studentas&& s); // move konstruktorius
+  Studentas& operator=(const Studentas& s); //copy priskyrimas = 
+  Studentas& operator=(Studentas&& s); // move priskyrimas =
   ~Studentas(); //destruktorius
 
 
@@ -49,6 +81,8 @@ public:
   void skaiciuoti_rezultata(int pasirinkimas);
   void isvalyti_pazymius();
   friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
+  friend std::istream& operator>>(std::istream& is, Studentas& s);
+ friend std::ofstream& operator<<(std::ofstream& os, const Studentas& s);
 };
 
 
@@ -59,3 +93,4 @@ using StudentuGrupe = std::vector<Studentas>;  // vector
 //using StudentuGrupe = std::list<Studentas>;      // list
 //using StudentuGrupe = std::deque<Studentas>;   // deque
 const int Maxpazymiu=20;
+const int Maxstudentu=10000000;

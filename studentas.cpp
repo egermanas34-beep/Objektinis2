@@ -1,18 +1,97 @@
 #include "studentas.h"
 
 //konstruktoriaus realizacija
-Studentas::Studentas()  
+Studentas::Studentas() : Zmogus{"nepriskirtas", "nepriskirtas"} 
 {
-  Vardas = "nepriskirtas"; 
-  Pavarde = "nepriskirtas";
+  //Vardas = "nepriskirtas"; 
+  //Pavarde = "nepriskirtas";
+  paz.clear();
   egz = 0; vidurkis = 0.0;
   mediana = 0.0; rez = 0.0;
   lygis = "nepriskirtas";
+  //cout<<"Konstruktorius suveike\n";
   };
 Studentas::~Studentas()
 {
- 
+  Vardas = ""; Pavarde = ""; paz.clear(); egz = 0; vidurkis = 0.0; mediana = 0.0; rez = 0.0; lygis = "";
+  ////cout<<"Destruktorius suveike\n";
 };
+/* copy konstruktorius
+1. isskiriama nauja vieta
+2. perkopijuoja reiksmes is v 
+*/
+Studentas::Studentas(const Studentas& s): Zmogus{s.Vardas, s.Pavarde},
+  //Vardas{s.Vardas}, 
+  //Pavarde{s.Pavarde}, 
+  paz{s.paz}, 
+  egz{s.egz}, 
+  vidurkis{s.vidurkis}, 
+  mediana{s.mediana}, 
+  rez{s.rez}, 
+  lygis{s.lygis} 
+  {
+    
+  }
+  /* move konstruktorius
+  1."pavagiame" reiksmes is s
+  */
+  Studentas::Studentas(Studentas&& s): Zmogus{std::move(s.Vardas), std::move(s.Pavarde)},
+  //Vardas{std::move(s.Vardas)}, 
+  //Pavarde{std::move(s.Pavarde)}, 
+  paz{std::move(s.paz)}, 
+  egz{s.egz}, 
+  vidurkis{s.vidurkis}, 
+  mediana{s.mediana}, 
+  rez{s.rez}, 
+  lygis{std::move(s.lygis)} 
+  {
+    s.Vardas.clear();
+    s.Pavarde.clear();
+    s.paz.clear();  
+    s.egz = 0;
+    s.vidurkis = 0.0;
+    s.mediana = 0.0;
+    s.rez = 0.0;
+    s.lygis.clear();
+
+  }
+  //copy proskyrimas
+  Studentas& Studentas::operator=(const Studentas& s)
+{
+  if(&s == this) return *this;
+  Vardas = s.Vardas;
+  Pavarde = s.Pavarde;
+  paz = s.paz;
+  egz = s.egz;
+  vidurkis = s.vidurkis;
+  mediana = s.mediana;
+  rez = s.rez;
+  lygis = s.lygis;
+  return *this;
+}
+//move priskyrimas
+Studentas& Studentas::operator=(Studentas &&s)
+{
+if(&s == this) return *this;
+  Vardas = std::move(s.Vardas);
+  Pavarde = std::move(s.Pavarde);
+  paz = std::move(s.paz);
+  egz = s.egz;
+  vidurkis = s.vidurkis;
+  mediana = s.mediana;
+  rez = s.rez;
+  lygis = std::move(s.lygis);
+  s.Vardas.clear();
+  s.Pavarde.clear();
+  s.paz.clear();
+  s.egz = 0;
+  s.vidurkis = 0.0;
+  s.mediana = 0.0;
+  s.rez = 0.0;
+  s.lygis.clear();
+
+  return *this;
+}
 
  void Studentas::nuskaityti_ranka(int max_pazymiu)
   {
@@ -90,10 +169,37 @@ void Studentas::isvalyti_pazymius()
   {
     paz.clear();
   }
- std::ostream& operator<<(std::ostream& os, const Studentas& s)
+std::ostream& operator<<(std::ostream& os, const Studentas& s)
 {
     os << left << setw(15) << s.Vardas
        << left << setw(30) << s.Pavarde
        << left << setw(45) << fixed << setprecision(2) << s.rez;
     return os;
+}
+std::ofstream& operator<<(std::ofstream& os, const Studentas& s)
+{
+    os << left << setw(15) << s.Vardas << "|"
+       << left << setw(30) << s.Pavarde << "|"
+       << left << setw(45) << fixed << setprecision(2) << s.rez;
+    return os;
+}
+std::istream& operator>>(std::istream& is, Studentas& s)
+{
+    is >> s.Vardas >> s.Pavarde;
+
+    s.paz.clear();
+    int pazymys;
+
+    while (is >> pazymys) {
+      if(pazymys == 0) break; // Jei įvedamas 0, laikome, kad pažymių įvedimas baigtas
+        s.paz.push_back(pazymys);
+       
+    }
+
+    if (!s.paz.empty()) {
+        s.egz = s.paz.back();
+        s.paz.pop_back();
+    }
+
+    return is;
 }

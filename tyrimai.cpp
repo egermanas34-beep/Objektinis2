@@ -1,5 +1,62 @@
 #include "funkcijos.h"
 
+void tyrimasKlasesMetodams()
+{
+     Studentas s1;
+    s1.setVardas("Jonas");
+    s1.setPavarde("Jonaitis");
+    s1.setPaz(6);
+    s1.setEgz(9);
+    s1.skaiciuoti_rezultata(1); // Apskaičiuojame rezultatą pagal vidurkį
+
+    Studentas s2;
+   /* s2.setVardas("Petras");
+    s2.setPavarde("Petraitis");
+    s2.setPaz(8);
+    s2.setEgz(10);*/
+    cout << "Įveskite studento vardą, pavardę, pažymius ir egzamino pažymį(paskutinis ivestas pazymis bus egzamino pazimys, o norint nutraukti ivedima iveskite 0):\n";
+    cin>>s2;
+    s2.skaiciuoti_rezultata(2); // Apskaičiuojame rezultatą pagal medianą
+
+    std::cout << "Pradinis studentas s1:\n";
+    std::cout << s1 << "\n";
+    std::cout << "Pradinis studentas s2:\n";
+    std::cout << s2 << "\n";
+    // 1. Copy konstruktoriaus testas
+    Studentas s3{s1};
+    std::cout << "Po copy konstruktoriaus (s3{s1}):\n";
+    std::cout << "s1: " << s1 << "\n";
+    std::cout << "s3: " << s3 << "\n";
+
+    // 2. Copy priskyrimo operatoriaus testas
+    Studentas s4;
+    s4 = s2;
+    std::cout << "Po copy priskyrimo (s4 = s2):\n";
+    std::cout << "s2: " << s2 << '\n';
+    std::cout << "s4: " << s4 << "\n\n";
+
+    // 3. Move konstruktoriaus testas
+    Studentas s5{std::move(s1)};
+    std::cout << "Po move konstruktoriaus (s5{std::move(s1)}):\n";
+    std::cout << "s5: " << s5 << "\n\n";
+    std::cout<<"s1"<<s1<<"\n\n"; // s1 turėtų būti tuščias arba "nulintas" po move konstruktoriaus
+    // 4. Move priskyrimo operatoriaus testas
+    
+    Studentas s6;
+    s6 = std::move(s2);
+    std::cout << "Po move priskyrimo (s6 = std::move(s2)):\n";
+    std::cout << "s6: " << s6 << "\n\n";
+
+    Studentas s7; 
+    s7.setVardas("Asta");
+    s7.setPavarde("Astaitė");   
+   s7.whoAmI();
+   // Zmogus z1{"Tomas", "Tomaitis"};
+   // std::cout << "Zmogus z1:\n";
+   // std::cout << "Vardas: " << z1.getVardas() << ", Pavardė: " << z1.getPavarde() << "\n";
+  
+}
+
 void tyrimasFailoKurimas() {
     vector<int> dydziai = {100000, 1000000}; 
 

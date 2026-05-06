@@ -30,7 +30,7 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 
             std::stringstream ss(eil);// Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
             Studentas A;
-            A.nuskaityti_is_eilutes(ss); // Skaitome eilutę į Studentas objektą per klasės metodą
+           ss>>A; // Skaitome eilutę į Studentas objektą per klasės metodą
             if (A.getVardas().empty() || A.getPavarde().empty()) 
             {
                 continue;
