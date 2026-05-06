@@ -4,7 +4,7 @@
 #include "studentas.h"
 
 namespace {
-Studentas MakeStudent(const std::string& vardas,
+Studentas sukurtasStudentas(const std::string& vardas,
                       const std::string& pavarde,
                       std::initializer_list<int> pazymiai,
                       int egzaminas) {
@@ -17,20 +17,20 @@ Studentas MakeStudent(const std::string& vardas,
     student.setEgz(egzaminas);
     return student;
 }
-}  // namespace
+}  // cia sukuriame pagalbine funkcija, kad testuose nereiktu kartoti to pacio ivedimo su studentais
 
-TEST(StudentasDefault, InitialStateIsKnown) {
+TEST(StudentasKonstruktorius, NumatytosReiksmes) {
     Studentas student;
 
-    EXPECT_EQ(student.getVardas(), "nepriskirtas");
+    EXPECT_EQ(student.getVardas(), "nepriskirtas");//tikriname ar default konstruktorius nustato numatytas reiksmes
     EXPECT_EQ(student.getPavarde(), "nepriskirtas");
     EXPECT_TRUE(student.getPaz().empty());
     EXPECT_EQ(student.getEgz(), 0);
     EXPECT_DOUBLE_EQ(student.Rezultatas(), 0.0);
 }
 
-TEST(StudentasRuleOfFive, CopyConstructorPreservesState) {
-    Studentas source = MakeStudent("Jonas", "Jonaitis", {8, 9, 10}, 7);
+TEST(StudentasRuleOfFive, CopyKonstruktorius) {
+    Studentas source = sukurtasStudentas("Jonas", "Jonaitis", {8, 9, 10}, 7);
     source.skaiciuoti_rezultata(1);
 
     Studentas copy(source);
@@ -42,8 +42,8 @@ TEST(StudentasRuleOfFive, CopyConstructorPreservesState) {
     EXPECT_DOUBLE_EQ(copy.Rezultatas(), source.Rezultatas());
 }
 
-TEST(StudentasRuleOfFive, CopyAssignmentPreservesState) {
-    Studentas source = MakeStudent("Ona", "Onaitė", {6, 7, 8}, 9);
+TEST(StudentasRuleOfFive, CopyAssignment) {
+    Studentas source = sukurtasStudentas("Ona", "Onaitė", {6, 7, 8}, 9);
     source.skaiciuoti_rezultata(2);
 
     Studentas target;
@@ -56,8 +56,8 @@ TEST(StudentasRuleOfFive, CopyAssignmentPreservesState) {
     EXPECT_DOUBLE_EQ(target.Rezultatas(), source.Rezultatas());
 }
 
-TEST(StudentasRuleOfFive, MoveConstructorTransfersState) {
-    Studentas source = MakeStudent("Petras", "Petraitis", {5, 10, 9}, 8);
+TEST(StudentasRuleOfFive, MoveKonstruktorius) {
+    Studentas source = sukurtasStudentas("Petras", "Petraitis", {5, 10, 9}, 8);
     source.skaiciuoti_rezultata(1);
     const double expected_result = source.Rezultatas();
 
@@ -76,8 +76,8 @@ TEST(StudentasRuleOfFive, MoveConstructorTransfersState) {
     EXPECT_DOUBLE_EQ(source.Rezultatas(), 0.0);
 }
 
-TEST(StudentasRuleOfFive, MoveAssignmentTransfersState) {
-    Studentas source = MakeStudent("Ieva", "Ievaite", {9, 9, 8}, 10);
+TEST(StudentasRuleOfFive, MoveAssignment) {
+    Studentas source = sukurtasStudentas("Ieva", "Ievaite", {9, 9, 8}, 10);
     source.skaiciuoti_rezultata(1);
     const double expected_result = source.Rezultatas();
 
@@ -97,23 +97,23 @@ TEST(StudentasRuleOfFive, MoveAssignmentTransfersState) {
     EXPECT_DOUBLE_EQ(source.Rezultatas(), 0.0);
 }
 
-TEST(StudentasResults, AverageModeUsesWeightedAverage) {
-    Studentas student = MakeStudent("Mantas", "Mantauskas", {8, 10}, 6);
+TEST(StudentasRezultatai, NaudojantVidurki) {
+    Studentas student = sukurtasStudentas("Mantas", "Mantauskas", {8, 10}, 6);
 
     student.skaiciuoti_rezultata(1);
 
     EXPECT_DOUBLE_EQ(student.Rezultatas(), 7.2);
 }
 
-TEST(StudentasResults, MedianModeUsesMedian) {
-    Studentas student = MakeStudent("Greta", "Gretaite", {7, 9, 10}, 8);
+TEST(StudentasRezultatai, NaudojantMediana) {
+    Studentas student = sukurtasStudentas("Greta", "Gretaite", {7, 9, 10}, 8);
 
     student.skaiciuoti_rezultata(2);
 
     EXPECT_DOUBLE_EQ(student.Rezultatas(), 8.4);
 }
 
-TEST(StudentasStreams, ExtractionReadsMarksUntilZero) {
+TEST(StudentasStreams, Nuskaitymas) {
     std::istringstream input("Tomas Tomaitis 10 9 0");
     Studentas student;
 
@@ -125,15 +125,15 @@ TEST(StudentasStreams, ExtractionReadsMarksUntilZero) {
     EXPECT_EQ(student.getEgz(), 9);
 }
 
-TEST(StudentasStreams, StreamOutputContainsNamesAndResult) {
-    Studentas student = MakeStudent("Laura", "Lauraitė", {10, 10}, 10);
+TEST(StudentasStreams, Isvedimas) {
+    Studentas student = sukurtasStudentas("Laura", "Lauraitė", {10, 10}, 10);
     student.skaiciuoti_rezultata(1);
 
     std::ostringstream output;
     output << student;
 
     const std::string text = output.str();
-    EXPECT_NE(text.find("Laura"), std::string::npos);
+    EXPECT_NE(text.find("Laura"), std::string::npos);//tikriname ar isvedime yra vardas, pavarde ir rezultatas
     EXPECT_NE(text.find("Lauraitė"), std::string::npos);
     EXPECT_NE(text.find("10.00"), std::string::npos);
 }
