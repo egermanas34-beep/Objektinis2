@@ -1,21 +1,17 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
-project(StudentuSistema)
+project(StudentuSistema LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(CTest)
+# Add source subdirectory
+add_subdirectory(src)
 
-file(GLOB SOURCES CONFIGURE_DEPENDS "*.cpp")
-list(REMOVE_ITEM SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
+# Testing support
+enable_testing()
 
-add_library(StudentuSistemaCore ${SOURCES})
-target_include_directories(StudentuSistemaCore PUBLIC ${CMAKE_SOURCE_DIR})
-
-add_executable(StudentuSistema main.cpp)
-target_link_libraries(StudentuSistema PRIVATE StudentuSistemaCore)
-
+option(BUILD_TESTING "Build tests" ON)
 if(BUILD_TESTING)
 	include(FetchContent)
 
@@ -26,9 +22,5 @@ if(BUILD_TESTING)
 	)
 	FetchContent_MakeAvailable(googletest)
 
-	add_executable(StudentuSistemaTests tests/studentas_tests.cpp)
-	target_link_libraries(StudentuSistemaTests PRIVATE StudentuSistemaCore GTest::gtest_main)
-
-	include(GoogleTest)
-	gtest_discover_tests(StudentuSistemaTests)
+	add_subdirectory(tests)
 endif()
