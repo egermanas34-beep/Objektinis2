@@ -52,3 +52,6 @@ blokas.txt
 smartukai*.txt
 studentai_*.txt
 vargsiukai*.txt
+
+# Editor/IDE
+.vscode/
