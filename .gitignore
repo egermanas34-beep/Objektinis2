@@ -42,6 +42,7 @@
 
 # Project-generated artifacts and datasets
 build/
+build-tests/
 output/
 nuotraukos tyrimu/
 
