@@ -28,9 +28,9 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
                 continue;
             }
 
-            std::stringstream ss(eil);// Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
+            std::stringstream ss(eil);//! Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
             Studentas A;
-           ss>>A; // Skaitome eilutę į Studentas objektą per klasės metodą
+           ss>>A; //! Skaitome eilutę į Studentas objektą per klasės metodą
             if (A.getVardas().empty() || A.getPavarde().empty()) 
             {
                 continue;
@@ -38,7 +38,7 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 
             A.skaiciuoti_rezultata(pasirinkimas);
         
-            A.isvalyti_pazymius(); // Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+            A.isvalyti_pazymius(); //! Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
             
             grupe.push_back(A);
              m++;
@@ -60,13 +60,13 @@ StudentuGrupe bufer_nusk(string &read_vardas,int &pasirinkimas, int &m)
 void inputas(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
 {
     int m = 1; // Pradinis studentų kiekis, nustatomas į 1, kad įvesties ciklas prasidėtų
-     // Pradinis pažymių kiekis, nustatomas į 1, kad įvesties ciklas prasidėtų
+    
     while (m!=0)
     {
-        A.nuskaityti_ranka(Maxpazymiu); // Rankinis įvedimas per klasės metodą
+        A.nuskaityti_ranka(Maxpazymiu); //! Rankinis įvedimas per klasės metodą
         A.skaiciuoti_rezultata(pasirinkimas);
-        grupe.push_back(A);// Pridedame studentą į grupę
-        A.isvalyti_pazymius();// Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+        grupe.push_back(A);//! Pridedame studentą į grupę
+        A.isvalyti_pazymius();//! Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
         cout<<"Jei norite ivesti dar viena studenta, iveskite 1, jei ne - 0: ";
         cin>>m;
     }
@@ -74,8 +74,8 @@ void inputas(Studentas &A, StudentuGrupe &grupe, int &pasirinkimas)
 void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, int &pasirinkimas, int &isvedimas, int &m)
 {
     
-    auto start = std::chrono::high_resolution_clock::now();// Pradedame matuoti laiką
-    /* std::chrono::high_resolution_clock::now() funkcija grąžina dabartinį laiką, 
+    auto start = std::chrono::high_resolution_clock::now();//! Pradedame matuoti laiką
+    /*! std::chrono::high_resolution_clock::now() funkcija grąžina dabartinį laiką, 
     kuris bus naudojamas vėliau apskaičiuoti, kiek laiko užtruko failo nuskaitymas ir apdorojimas*/
     if(isvedimas==2)
     {
@@ -129,8 +129,8 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
         
         
        cout<<"Rezultatai išsaugoti failuose vargsiukai"+std::to_string(m)+".txt ir smartukai"+std::to_string(m)+".txt"<<endl;
-       std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;// Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
-        //std::chrono::duration<double> yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.count() grąžina šią reikšmę, kurią mes išvedame į ekraną
+       std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;//! Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
+        //!std::chrono::duration<double> yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.count() grąžina šią reikšmę, kurią mes išvedame į ekraną
         cout << "Duomenų išvedimas užtruko: " << diff.count() << " sekundžių." << endl;
         out_f.close();
         out_s.close();
@@ -160,8 +160,8 @@ void outputas(const StudentuGrupe &vargsiukai, const StudentuGrupe &smartukai, i
         cout << A << '\n';
     }
 
-     std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;// Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
-    //std::chrono::duration<double> yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.count() grąžina šią reikšmę, kurią mes išvedame į ekraną
-    cout << "Duomenų išvedimas užtruko: " << diff.count() << " sekundžių." << endl;
+     std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;//! Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
+        //!std::chrono::duration<double> yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.count() grąžina šią reikšmę, kurią mes išvedame į ekraną
+        cout << "Duomenų išvedimas užtruko: " << diff.count() << " sekundžių." << endl;
     
 }

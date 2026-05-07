@@ -1,0 +1,169 @@
+\doxysection{ived\+\_\+isved.\+cpp}
+\hypertarget{ived__isved_8cpp_source}{}\label{ived__isved_8cpp_source}\index{src/ived\_isved.cpp@{src/ived\_isved.cpp}}
+\doxymbox{\hyperlink{ived__isved_8cpp}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{funkcijos_8h}{funkcijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00004}\doxymbox{\hyperlink{funkcijos_8h_ae9b010ed0d2716f66d318a6daee597d2}{00004}}\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \doxymbox{\hyperlink{ived__isved_8cpp_ae9b010ed0d2716f66d318a6daee597d2}{bufer\_nusk}}(\textcolor{keywordtype}{string}\ \&read\_vardas,\textcolor{keywordtype}{int}\ \&pasirinkimas,\ \textcolor{keywordtype}{int}\ \&m)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00006}00006\ \ \ \ \ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ grupe;\textcolor{comment}{//\ Sukuriame\ tuščią\ studentų\ grupės\ vektorių}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00007}00007\ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00010}00010\ \ \ \ \ \{\ m=0;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ std::ifstream\ open\_f(read\_vardas);\textcolor{comment}{//\ Atidarome\ failą\ skaitymui}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!open\_f.is\_open())}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Nepavyko\ atidaryti\ failo\ "{}}\ +\ read\_vardas);\textcolor{comment}{//jeigu\ failas\ nebuvo\ atidarytas,\ ismeta\ klaida}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \textcolor{comment}{//\ auto\ start\ =\ std::chrono::high\_resolution\_clock::now();//\ Pradedame\ matuoti\ laiką}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ std::chrono::high\_resolution\_clock::now()\ funkcija\ grąžina\ dabartinį\ laiką,\ }}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00020}00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ kuris\ bus\ naudojamas\ vėliau\ apskaičiuoti,\ kiek\ laiko\ užtruko\ failo\ nuskaitymas\ ir\ apdorojimas*/}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ eil;\textcolor{comment}{//\ Sukuriame\ eilutės\ kintamąjį,\ kuris\ bus\ naudojamas\ skaityti\ kiekvieną\ eilutę\ iš\ failo}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::getline(open\_f,\ eil);\textcolor{comment}{//\ Skaitome\ pirmąją\ eilutę,\ kuri\ yra\ antraštė,\ ir\ ją\ ignoruojame}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(open\_f,\ eil))\ \textcolor{comment}{//\ Skaitome\ kiekvieną\ likusią\ eilutę\ iš\ failo,\ kol\ pasiekiame\ failo\ pabaigą}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eil.empty())\ \textcolor{comment}{//\ Tikriname,\ ar\ eilutė\ yra\ tuščia,\ ir\ jei\ taip,\ praleidžiame\ ją}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss(eil);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_studentas}{Studentas}}\ A;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ ss>>A;\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (A.\doxymbox{\hyperlink{class_zmogus_a82e05fb49136546e6e067ed49a4144a9}{getVardas}}().empty()\ ||\ A.\doxymbox{\hyperlink{class_zmogus_aca338975f28b0cfe9c66520339b042c0}{getPavarde}}().empty())\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a2dd1118ce63182a782e73f1ecdd7207c}{skaiciuoti\_rezultata}}(pasirinkimas);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_aa15f7679961e11aa0758a2664103f510}{isvalyti\_pazymius}}();\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ grupe.push\_back(A);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ m++;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::chrono::duration<double>\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ start;//\ Apskaičiuojame,\ kiek\ laiko\ praėjo\ nuo\ pradžios\ iki\ dabar,\ ir\ išsaugome\ šį\ laiką\ diff\ kintamajame}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::chrono::duration<double>\ yra\ tipas,\ kuris\ saugo\ laiką\ sekundėmis\ kaip\ double\ reikšmę,\ o\ diff.count()\ grąžina\ šią\ reikšmę,\ kurią\ mes\ išvedame\ į\ ekraną}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//cout\ <<\ "{}Failo\ nuskaitymas\ ir\ apdorojimas\ uztruko:\ "{}\ <<\ diff.count()\ <<\ "{}\ sekundziu."{}\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ open\_f.close();}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ grupe;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00052}00052\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ std::runtime\_error\&\ e)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00054}00054\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Klaida:\ "{}}<<e.what()<<\textcolor{stringliteral}{"{}.\ Patikrinkite\ ar\ failas\ egzistuoja\ ir\ bandykite\ dar\ kartą.\ \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00060}\doxymbox{\hyperlink{funkcijos_8h_a0befe647059dbee7c1ff03a386a7bab2}{00060}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{ived__isved_8cpp_a0befe647059dbee7c1ff03a386a7bab2}{inputas}}(\doxymbox{\hyperlink{class_studentas}{Studentas}}\ \&A,\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \&grupe,\ \textcolor{keywordtype}{int}\ \&pasirinkimas)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ 1;\ \textcolor{comment}{//\ Pradinis\ studentų\ kiekis,\ nustatomas\ į\ 1,\ kad\ įvesties\ ciklas\ prasidėtų}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00063}00063\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{while}\ (m!=0)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a64bc5a959d1db71e6ea8548ed4be5e04}{nuskaityti\_ranka}}(\doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}});\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a2dd1118ce63182a782e73f1ecdd7207c}{skaiciuoti\_rezultata}}(pasirinkimas);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ grupe.push\_back(A);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_aa15f7679961e11aa0758a2664103f510}{isvalyti\_pazymius}}();}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Jei\ norite\ ivesti\ dar\ viena\ studenta,\ iveskite\ 1,\ jei\ ne\ -\/\ 0:\ "{}};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ cin>>m;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00074}\doxymbox{\hyperlink{funkcijos_8h_aea20c4aa79f8441459a03a8d09c8b9e8}{00074}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{ived__isved_8cpp_aea20c4aa79f8441459a03a8d09c8b9e8}{outputas}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \&vargsiukai,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \&smartukai,\ \textcolor{keywordtype}{int}\ \&pasirinkimas,\ \textcolor{keywordtype}{int}\ \&isvedimas,\ \textcolor{keywordtype}{int}\ \&m)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00076}00076\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}(isvedimas==2)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ std::ofstream\ out\_f(\textcolor{stringliteral}{"{}vargsiukai"{}}+std::to\_string(m)+\textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ std::ofstream\ out\_s(\textcolor{stringliteral}{"{}smartukai"{}}+std::to\_string(m)+\textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pasirinkimas==1)\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(vid.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ fixed\ <<\ setprecision(2);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ vargsiukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(med.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ fixed\ <<\ setprecision(2);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ vargsiukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_f\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pasirinkimas==1)\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(vid.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ fixed\ <<\ setprecision(2);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ smartukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(med.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ fixed\ <<\ setprecision(2);}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ smartukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_s\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Rezultatai\ išsaugoti\ failuose\ vargsiukai"{}}+std::to\_string(m)+\textcolor{stringliteral}{"{}.txt\ ir\ smartukai"{}}+std::to\_string(m)+\textcolor{stringliteral}{"{}.txt"{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ std::chrono::duration<double>\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Duomenų\ išvedimas\ užtruko:\ "{}}\ <<\ diff.count()\ <<\ \textcolor{stringliteral}{"{}\ sekundžių."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ out\_f.close();}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ out\_s.close();}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00140}00140\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00142}00142\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (pasirinkimas\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00144}00144\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ cout\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(vid.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00148}00148\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ cout\ <<\ left\ <<\ setw(15)\ <<\ \textcolor{stringliteral}{"{}Vardas:"{}}\ <<\ left\ <<\ setw(30)\ <<\ \textcolor{stringliteral}{"{}Pavardė:"{}}\ <<\ left\ <<\ setw(45)\ <<\ \textcolor{stringliteral}{"{}Galutinis(med.):"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00151}00151\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00152}00152\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Vargsiukai:"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ vargsiukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00154}00154\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ cout\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00157}00157\ \ \ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ \textcolor{stringliteral}{"{}Smartukai:"{}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&A\ :\ smartukai)}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00159}00159\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ cout\ <<\ A\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00163}00163\ \ \ \ \ \ std::chrono::duration<double>\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Duomenų\ išvedimas\ užtruko:\ "{}}\ <<\ diff.count()\ <<\ \textcolor{stringliteral}{"{}\ sekundžių."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00166}00166\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ived__isved_8cpp_source_l00167}00167\ \}}
+
+\end{DoxyCode}

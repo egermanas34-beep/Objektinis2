@@ -1,0 +1,125 @@
+\doxysection{generavimas.\+cpp}
+\hypertarget{generavimas_8cpp_source}{}\label{generavimas_8cpp_source}\index{src/generavimas.cpp@{src/generavimas.cpp}}
+\doxymbox{\hyperlink{generavimas_8cpp}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{funkcijos_8h}{funkcijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00003}\doxymbox{\hyperlink{funkcijos_8h_a858525eb14d162830da47350f9936e3e}{00003}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{generavimas_8cpp_a858525eb14d162830da47350f9936e3e}{generavimasSk}}(\doxymbox{\hyperlink{class_studentas}{Studentas}}\ \&A,\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \&grupe,\ \textcolor{keywordtype}{int}\ \&pasirinkimas)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ \doxymbox{\hyperlink{funkcijos_8h_a5f24602c30b94e0fa343039accc48330}{skaiciu\_mastelis}}(\textcolor{stringliteral}{"{}Kiek\ yra\ studentų?\ "{}},\ 1,\ 1000);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<m;i++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00007}00007\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a05199b0b20b04356ecb150285ee1292a}{setVardas}}(\doxymbox{\hyperlink{funkcijos_8h_a9549121a612c94013b6ab02b1555cdfe}{vardo\_skaitymas}}(\textcolor{stringliteral}{"{}Įveskite\ studento\ vardą:\ "{}}));}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a1694149ac00b747c845884614d77970c}{setPavarde}}(\doxymbox{\hyperlink{funkcijos_8h_a9549121a612c94013b6ab02b1555cdfe}{vardo\_skaitymas}}(\textcolor{stringliteral}{"{}Įveskite\ studento\ pavardę:\ "{}}));}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iš\ viso\ gali\ būti\ įvesta\ "{}}<<\doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}}<<\textcolor{stringliteral}{"{}\ pažymių."{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Įveskite\ semestro\ pažymius\ :\ \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \doxymbox{\hyperlink{funkcijos_8h_a5f24602c30b94e0fa343039accc48330}{skaiciu\_mastelis}}(\textcolor{stringliteral}{"{}Kiek\ pažymių\ norite\ sugeneruoti?\ "{}},\ 1,\ \doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}});}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ ii=0;ii<n;ii++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ rand()\ \%\ 10\ +\ 1;\ \textcolor{comment}{//\ Generuoja\ atsitiktinius\ skaičius\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Sugeneruotas\ "{}}<<ii+1<<\textcolor{stringliteral}{"{}\ pažymys:\ "{}}<<temp<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a6c1a5b0843c75501b9f727c0ae8d8f3a}{setPaz}}(temp);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pasirinkimas==1\ \&\&\ n<\doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}})\ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ ii=0;ii<\doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}}-\/n;ii++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a6c1a5b0843c75501b9f727c0ae8d8f3a}{setPaz}}(0);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_af7a2740c86cee79b07ea47b3eb819280}{setEgz}}(rand()\ \%\ 10\ +\ 1);\ \textcolor{comment}{//\ Generuoja\ atsitiktinius\ skaičius\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Sugeneruotas\ egzamino\ pažymys:\ "{}}<<A.\doxymbox{\hyperlink{class_studentas_a2f9dcb2fef2e6b3dbc1581779a90a68a}{getEgz}}()<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a2dd1118ce63182a782e73f1ecdd7207c}{skaiciuoti\_rezultata}}(pasirinkimas);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ grupe.push\_back(A);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_aa15f7679961e11aa0758a2664103f510}{isvalyti\_pazymius}}();}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00035}\doxymbox{\hyperlink{funkcijos_8h_a1bc369cff3fd1f5f20abe20c2ac7503c}{00035}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{generavimas_8cpp_a1bc369cff3fd1f5f20abe20c2ac7503c}{generavimasVisko}}(\doxymbox{\hyperlink{class_studentas}{Studentas}}\ \&A,\ \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{StudentuGrupe}}\ \&grupe,\ \textcolor{keywordtype}{int}\ \&pasirinkimas)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00037}00037\ \ \ \ mt19937\ mt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::chrono::high\_resolution\_clock::now().time\_since\_epoch().count()));}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00039}00039\ \ \ \ uniform\_int\_distribution<int>\ dist(0,9);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00040}00040\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00041}00041\ \ \ \ \textcolor{keywordtype}{string}\ vardai[10]=\{\textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Petras"{}},\ \textcolor{stringliteral}{"{}Ona"{}},\ \textcolor{stringliteral}{"{}Maryte"{}},\ \textcolor{stringliteral}{"{}Antanas"{}},\ \textcolor{stringliteral}{"{}Ieva"{}},\ \textcolor{stringliteral}{"{}Tomas"{}},\ \textcolor{stringliteral}{"{}Rasa"{}},\ \textcolor{stringliteral}{"{}Dainius"{}},\ \textcolor{stringliteral}{"{}Asta"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00042}00042\ \ \ \ \textcolor{keywordtype}{string}\ pavardes\_m[10]=\{\textcolor{stringliteral}{"{}Pavardaite1"{}},\ \textcolor{stringliteral}{"{}Pavardaite2"{}},\ \textcolor{stringliteral}{"{}Pavardaite3"{}},\ \textcolor{stringliteral}{"{}Pavardaite4"{}},\ \textcolor{stringliteral}{"{}Pavardaite5"{}},\ \textcolor{stringliteral}{"{}Pavardaite6"{}},\ \textcolor{stringliteral}{"{}Pavardaite7"{}},\ \textcolor{stringliteral}{"{}Pavardaite8"{}},\ \textcolor{stringliteral}{"{}Pavardaite9"{}},\ \textcolor{stringliteral}{"{}Pavardaite10"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00043}00043\ \ \ \ \textcolor{keywordtype}{string}\ pavardes\_v[10]=\{\textcolor{stringliteral}{"{}Pavardenis1"{}},\ \textcolor{stringliteral}{"{}Pavardenis2"{}},\ \textcolor{stringliteral}{"{}Pavardenis3"{}},\ \textcolor{stringliteral}{"{}Pavardenis4"{}},\ \textcolor{stringliteral}{"{}Pavardenis5"{}},\ \textcolor{stringliteral}{"{}Pavardenis6"{}},\ \textcolor{stringliteral}{"{}Pavardenis7"{}},\ \textcolor{stringliteral}{"{}Pavardenis8"{}},\ \textcolor{stringliteral}{"{}Pavardenis9"{}},\ \textcolor{stringliteral}{"{}Pavardenis10"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ \doxymbox{\hyperlink{funkcijos_8h_a5f24602c30b94e0fa343039accc48330}{skaiciu\_mastelis}}(\textcolor{stringliteral}{"{}Kiek\ yra\ studentų?\ "{}},\ 1,\ 1000);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00045}00045\ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iš\ viso\ gali\ būti\ įvesta\ "{}}<<\doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}}<<\textcolor{stringliteral}{"{}\ pažymiu."{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00046}00046\ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Kiek\ pažymių\ norite\ sugeneruoti?\ "{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \doxymbox{\hyperlink{funkcijos_8h_a5f24602c30b94e0fa343039accc48330}{skaiciu\_mastelis}}(\textcolor{stringliteral}{"{}"{}},\ 1,\ \doxymbox{\hyperlink{studentas_8h_aa537f56017807ed9e0cb5a1ae4d41594}{Maxpazymiu}});}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<m;i++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00049}00049\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a05199b0b20b04356ecb150285ee1292a}{setVardas}}(vardai[dist(mt)]);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(*A.\doxymbox{\hyperlink{class_zmogus_a82e05fb49136546e6e067ed49a4144a9}{getVardas}}().rbegin())\textcolor{comment}{//pasirenkame\ pavarde\ pagal\ vardo\ gala}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:\ A.\doxymbox{\hyperlink{class_studentas_a1694149ac00b747c845884614d77970c}{setPavarde}}(pavardes\_v[dist(mt)]);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ A.\doxymbox{\hyperlink{class_studentas_a1694149ac00b747c845884614d77970c}{setPavarde}}(pavardes\_m[dist(mt)]);\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ ii=0;ii<n;ii++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ dist(mt)+1;\ \textcolor{comment}{//\ Generuoja\ atsitiktinius\ skaičius\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Sugeneruotas\ "{}}<<ii+1<<\textcolor{stringliteral}{"{}\ pažymys:\ "{}}<<temp<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a6c1a5b0843c75501b9f727c0ae8d8f3a}{setPaz}}(temp);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_af7a2740c86cee79b07ea47b3eb819280}{setEgz}}(dist(mt)+1);\ \textcolor{comment}{//\ Generuoja\ atsitiktinius\ skaičius\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Sugeneruotas\ egzamino\ pažymys:\ "{}}<<A.\doxymbox{\hyperlink{class_studentas_a2f9dcb2fef2e6b3dbc1581779a90a68a}{getEgz}}()<<endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_a2dd1118ce63182a782e73f1ecdd7207c}{skaiciuoti\_rezultata}}(pasirinkimas);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ grupe.push\_back(A);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ A.\doxymbox{\hyperlink{class_studentas_aa15f7679961e11aa0758a2664103f510}{isvalyti\_pazymius}}();}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00072}00072\ \}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00073}\doxymbox{\hyperlink{funkcijos_8h_ae49d185a33ca55659f7a9e314ffab7b5}{00073}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{generavimas_8cpp_ae49d185a33ca55659f7a9e314ffab7b5}{failuGeneravimas}}(\ \textcolor{keywordtype}{int}\ \&n)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00075}00075\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00076}00076\ \ \ \ \ std::ofstream\ failas(\textcolor{stringliteral}{"{}studentai\_"{}}+std::to\_string(n)+\textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (!failas.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Nepavyko\ sukurti\ failo\ studentai\_"{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00081}00081\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ 10;\ \textcolor{comment}{//\ Generuojame\ 10\ pažymių\ kiekvienam\ studentui\ testui}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00083}00083\ \ \ \ \ \ mt19937\ mt(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::chrono::high\_resolution\_clock::now().time\_since\_epoch().count()));\textcolor{comment}{//\ Inicijuojame\ atsitiktinių\ skaičių\ generatorių\ su\ dabartiniu\ laiku\ }}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00084}00084\ \ \ \ \textcolor{comment}{//static\_cast<long\ unsigned\ int>\ naudojamas\ norint\ užtikrinti,\ kad\ laiko\ reikšmė\ būtų\ tinkamai\ konvertuota\ į\ generatoriaus\ sėklą}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00085}00085\ \ \ \ uniform\_int\_distribution<int>\ dist(0,9);\textcolor{comment}{//\ Sukuriame\ tolygų\ skaičių\ pasiskirstymą\ nuo\ 0\ iki\ 9\ \ \ }}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00086}00086\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00087}00087\ \ \ \ \textcolor{keywordtype}{string}\ vardai[10]=\{\textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Petras"{}},\ \textcolor{stringliteral}{"{}Ona"{}},\ \textcolor{stringliteral}{"{}Maryte"{}},\ \textcolor{stringliteral}{"{}Antanas"{}},\ \textcolor{stringliteral}{"{}Ieva"{}},\ \textcolor{stringliteral}{"{}Tomas"{}},\ \textcolor{stringliteral}{"{}Rasa"{}},\ \textcolor{stringliteral}{"{}Dainius"{}},\ \textcolor{stringliteral}{"{}Asta"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00088}00088\ \ \ \ \textcolor{keywordtype}{string}\ pavardes\_m[10]=\{\textcolor{stringliteral}{"{}Pavardaite1"{}},\ \textcolor{stringliteral}{"{}Pavardaite2"{}},\ \textcolor{stringliteral}{"{}Pavardaite3"{}},\ \textcolor{stringliteral}{"{}Pavardaite4"{}},\ \textcolor{stringliteral}{"{}Pavardaite5"{}},\ \textcolor{stringliteral}{"{}Pavardaite6"{}},\ \textcolor{stringliteral}{"{}Pavardaite7"{}},\ \textcolor{stringliteral}{"{}Pavardaite8"{}},\ \textcolor{stringliteral}{"{}Pavardaite9"{}},\ \textcolor{stringliteral}{"{}Pavardaite10"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00089}00089\ \ \ \ \textcolor{keywordtype}{string}\ pavardes\_v[10]=\{\textcolor{stringliteral}{"{}Pavardenis1"{}},\ \textcolor{stringliteral}{"{}Pavardenis2"{}},\ \textcolor{stringliteral}{"{}Pavardenis3"{}},\ \textcolor{stringliteral}{"{}Pavardenis4"{}},\ \textcolor{stringliteral}{"{}Pavardenis5"{}},\ \textcolor{stringliteral}{"{}Pavardenis6"{}},\ \textcolor{stringliteral}{"{}Pavardenis7"{}},\ \textcolor{stringliteral}{"{}Pavardenis8"{}},\ \textcolor{stringliteral}{"{}Pavardenis9"{}},\ \textcolor{stringliteral}{"{}Pavardenis10"{}}\};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00090}00090\ \ \ \ failas<<left<<setw(15)<<\textcolor{stringliteral}{"{}Vardas"{}}<<left<<setw(15)<<\textcolor{stringliteral}{"{}Pavarde"{}};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00091}00091\ \ \ \ \textcolor{keywordtype}{int}\ a=45;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00092}00092\ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<m;i++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00093}00093\ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00094}00094\ \ \ \ \ failas<<left<<setw(5)<<\textcolor{stringliteral}{"{}ND"{}}+std::to\_string(i+1);}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00095}00095\ \ \ \ \ a+=5;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00096}00096\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00097}00097\ \ \ \ failas<<left<<setw(5)<<\textcolor{stringliteral}{"{}Egz.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00098}00098\ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<n;i++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas=vardai[dist(mt)];}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pavarde;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(*vardas.rbegin())\textcolor{comment}{//pasirenkame\ pavarde\ pagal\ vardo\ gala}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:\ pavarde=pavardes\_v[dist(mt)];\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ pavarde=pavardes\_m[dist(mt)];\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ failas<<left<<setw(15)<<vardas<<left<<setw(15)<<pavarde;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;j<m;j++)}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ dist(mt)+1;\ \textcolor{comment}{//\ generuojam\ pazymius\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ failas<<left<<setw(5)<<temp;}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egz\ =\ dist(mt)+1;\ \textcolor{comment}{//\ generuojam\ egzamino\ pazymi\ nuo\ 1\ iki\ 10}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ failas<<left<<setw(5)<<egz<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00119}00119\ \ \ \ \ \ failas.close();}
+\DoxyCodeLine{\Hypertarget{generavimas_8cpp_source_l00120}00120\ \}}
+
+\end{DoxyCode}

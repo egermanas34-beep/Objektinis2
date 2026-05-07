@@ -1,6 +1,6 @@
 #include "studentas.h"
 
-//konstruktoriaus realizacija
+//!konstruktoriaus realizacija
 Studentas::Studentas() : Zmogus{"nepriskirtas", "nepriskirtas"} 
 {
   //Vardas = "nepriskirtas"; 
@@ -11,12 +11,13 @@ Studentas::Studentas() : Zmogus{"nepriskirtas", "nepriskirtas"}
   lygis = "nepriskirtas";
   //cout<<"Konstruktorius suveike\n";
   };
+  //! destruktoriaus realizacija
 Studentas::~Studentas()
 {
   Vardas = ""; Pavarde = ""; paz.clear(); egz = 0; vidurkis = 0.0; mediana = 0.0; rez = 0.0; lygis = "";
   ////cout<<"Destruktorius suveike\n";
 };
-/* copy konstruktorius
+/*! copy konstruktorius
 1. isskiriama nauja vieta
 2. perkopijuoja reiksmes is v 
 */
@@ -32,7 +33,7 @@ Studentas::Studentas(const Studentas& s): Zmogus{s.Vardas, s.Pavarde},
   {
     
   }
-  /* move konstruktorius
+  /*! move konstruktorius
   1."pavagiame" reiksmes is s
   */
   Studentas::Studentas(Studentas&& s): Zmogus{std::move(s.Vardas), std::move(s.Pavarde)},
@@ -55,7 +56,7 @@ Studentas::Studentas(const Studentas& s): Zmogus{s.Vardas, s.Pavarde},
     s.lygis.clear();
 
   }
-  //copy proskyrimas
+  //! copy proskyrimas
   Studentas& Studentas::operator=(const Studentas& s)
 {
   if(&s == this) return *this;
@@ -69,7 +70,7 @@ Studentas::Studentas(const Studentas& s): Zmogus{s.Vardas, s.Pavarde},
   lygis = s.lygis;
   return *this;
 }
-//move priskyrimas
+//! move priskyrimas
 Studentas& Studentas::operator=(Studentas &&s)
 {
 if(&s == this) return *this;
@@ -169,6 +170,7 @@ void Studentas::isvalyti_pazymius()
   {
     paz.clear();
   }
+  //! isvedimo operatorius
 std::ostream& operator<<(std::ostream& os, const Studentas& s)
 {
     os << left << setw(15) << s.Vardas
@@ -176,6 +178,7 @@ std::ostream& operator<<(std::ostream& os, const Studentas& s)
        << left << setw(45) << fixed << setprecision(2) << s.rez;
     return os;
 }
+//! isvedimo operatorius i faila
 std::ofstream& operator<<(std::ofstream& os, const Studentas& s)
 {
     os << left << setw(15) << s.Vardas << "|"
@@ -183,6 +186,7 @@ std::ofstream& operator<<(std::ofstream& os, const Studentas& s)
        << left << setw(45) << fixed << setprecision(2) << s.rez;
     return os;
 }
+//! ivedimo operatorius
 std::istream& operator>>(std::istream& is, Studentas& s)
 {
     is >> s.Vardas >> s.Pavarde;

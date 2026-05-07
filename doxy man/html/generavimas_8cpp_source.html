@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studento klases: src/generavimas.cpp išeities tekstas</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studento klases
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.17.0 -->
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Pagrindinis&#160;Puslapis</span></a></li>
+      <li><a href="annotated.html"><span>Klasės</span></a></li>
+      <li class="current"><a href="files.html"><span>Failai</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Failai</span></a></li>
+      <li><a href="globals.html"><span>Failų&#160;Nariai</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">generavimas.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="generavimas_8cpp.html">Eiti į šio failo dokumentaciją.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="funkcijos_8h.html">funkcijos.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="funkcijos_8h.html#a858525eb14d162830da47350f9936e3e">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="generavimas_8cpp.html#a858525eb14d162830da47350f9936e3e">generavimasSk</a>(<a class="code hl_class" href="class_studentas.html">Studentas</a> &amp;A, <a class="code hl_typedef" href="studentas_8h.html#a3398ae8dc2935ba22c9759fae39e5f15">StudentuGrupe</a> &amp;grupe, <span class="keywordtype">int</span> &amp;pasirinkimas)</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">int</span> m = <a class="code hl_function" href="funkcijos_8h.html#a5f24602c30b94e0fa343039accc48330">skaiciu_mastelis</a>(<span class="stringliteral">&quot;Kiek yra studentų? &quot;</span>, 1, 1000);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;m;i++)</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        A.<a class="code hl_function" href="class_studentas.html#a05199b0b20b04356ecb150285ee1292a">setVardas</a>(<a class="code hl_function" href="funkcijos_8h.html#a9549121a612c94013b6ab02b1555cdfe">vardo_skaitymas</a>(<span class="stringliteral">&quot;Įveskite studento vardą: &quot;</span>));</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        A.<a class="code hl_function" href="class_studentas.html#a1694149ac00b747c845884614d77970c">setPavarde</a>(<a class="code hl_function" href="funkcijos_8h.html#a9549121a612c94013b6ab02b1555cdfe">vardo_skaitymas</a>(<span class="stringliteral">&quot;Įveskite studento pavardę: &quot;</span>));</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        cout&lt;&lt;<span class="stringliteral">&quot;Iš viso gali būti įvesta &quot;</span>&lt;&lt;<a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>&lt;&lt;<span class="stringliteral">&quot; pažymių.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        cout&lt;&lt;<span class="stringliteral">&quot;Įveskite semestro pažymius : \n&quot;</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordtype">int</span> n = <a class="code hl_function" href="funkcijos_8h.html#a5f24602c30b94e0fa343039accc48330">skaiciu_mastelis</a>(<span class="stringliteral">&quot;Kiek pažymių norite sugeneruoti? &quot;</span>, 1, <a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordtype">int</span> temp;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> ii=0;ii&lt;n;ii++)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            temp = rand() % 10 + 1; <span class="comment">// Generuoja atsitiktinius skaičius nuo 1 iki 10</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            cout&lt;&lt;<span class="stringliteral">&quot;Sugeneruotas &quot;</span>&lt;&lt;ii+1&lt;&lt;<span class="stringliteral">&quot; pažymys: &quot;</span>&lt;&lt;temp&lt;&lt;endl;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            A.<a class="code hl_function" href="class_studentas.html#a6c1a5b0843c75501b9f727c0ae8d8f3a">setPaz</a>(temp);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">if</span>(pasirinkimas==1 &amp;&amp; n&lt;<a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>) </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> ii=0;ii&lt;<a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>-n;ii++)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            A.<a class="code hl_function" href="class_studentas.html#a6c1a5b0843c75501b9f727c0ae8d8f3a">setPaz</a>(0);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        A.<a class="code hl_function" href="class_studentas.html#af7a2740c86cee79b07ea47b3eb819280">setEgz</a>(rand() % 10 + 1); <span class="comment">// Generuoja atsitiktinius skaičius nuo 1 iki 10</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        cout&lt;&lt;<span class="stringliteral">&quot;Sugeneruotas egzamino pažymys: &quot;</span>&lt;&lt;A.<a class="code hl_function" href="class_studentas.html#a2f9dcb2fef2e6b3dbc1581779a90a68a">getEgz</a>()&lt;&lt;endl;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        A.<a class="code hl_function" href="class_studentas.html#a2dd1118ce63182a782e73f1ecdd7207c">skaiciuoti_rezultata</a>(pasirinkimas);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        grupe.push_back(A);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        A.<a class="code hl_function" href="class_studentas.html#aa15f7679961e11aa0758a2664103f510">isvalyti_pazymius</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="funkcijos_8h.html#a1bc369cff3fd1f5f20abe20c2ac7503c">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="generavimas_8cpp.html#a1bc369cff3fd1f5f20abe20c2ac7503c">generavimasVisko</a>(<a class="code hl_class" href="class_studentas.html">Studentas</a> &amp;A, <a class="code hl_typedef" href="studentas_8h.html#a3398ae8dc2935ba22c9759fae39e5f15">StudentuGrupe</a> &amp;grupe, <span class="keywordtype">int</span> &amp;pasirinkimas)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   mt19937 mt(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   uniform_int_distribution&lt;int&gt; dist(0,9);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <span class="keywordtype">string</span> vardai[10]={<span class="stringliteral">&quot;Jonas&quot;</span>, <span class="stringliteral">&quot;Petras&quot;</span>, <span class="stringliteral">&quot;Ona&quot;</span>, <span class="stringliteral">&quot;Maryte&quot;</span>, <span class="stringliteral">&quot;Antanas&quot;</span>, <span class="stringliteral">&quot;Ieva&quot;</span>, <span class="stringliteral">&quot;Tomas&quot;</span>, <span class="stringliteral">&quot;Rasa&quot;</span>, <span class="stringliteral">&quot;Dainius&quot;</span>, <span class="stringliteral">&quot;Asta&quot;</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <span class="keywordtype">string</span> pavardes_m[10]={<span class="stringliteral">&quot;Pavardaite1&quot;</span>, <span class="stringliteral">&quot;Pavardaite2&quot;</span>, <span class="stringliteral">&quot;Pavardaite3&quot;</span>, <span class="stringliteral">&quot;Pavardaite4&quot;</span>, <span class="stringliteral">&quot;Pavardaite5&quot;</span>, <span class="stringliteral">&quot;Pavardaite6&quot;</span>, <span class="stringliteral">&quot;Pavardaite7&quot;</span>, <span class="stringliteral">&quot;Pavardaite8&quot;</span>, <span class="stringliteral">&quot;Pavardaite9&quot;</span>, <span class="stringliteral">&quot;Pavardaite10&quot;</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keywordtype">string</span> pavardes_v[10]={<span class="stringliteral">&quot;Pavardenis1&quot;</span>, <span class="stringliteral">&quot;Pavardenis2&quot;</span>, <span class="stringliteral">&quot;Pavardenis3&quot;</span>, <span class="stringliteral">&quot;Pavardenis4&quot;</span>, <span class="stringliteral">&quot;Pavardenis5&quot;</span>, <span class="stringliteral">&quot;Pavardenis6&quot;</span>, <span class="stringliteral">&quot;Pavardenis7&quot;</span>, <span class="stringliteral">&quot;Pavardenis8&quot;</span>, <span class="stringliteral">&quot;Pavardenis9&quot;</span>, <span class="stringliteral">&quot;Pavardenis10&quot;</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> m = <a class="code hl_function" href="funkcijos_8h.html#a5f24602c30b94e0fa343039accc48330">skaiciu_mastelis</a>(<span class="stringliteral">&quot;Kiek yra studentų? &quot;</span>, 1, 1000);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    cout&lt;&lt;<span class="stringliteral">&quot;Iš viso gali būti įvesta &quot;</span>&lt;&lt;<a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>&lt;&lt;<span class="stringliteral">&quot; pažymiu.&quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    cout&lt;&lt;<span class="stringliteral">&quot;Kiek pažymių norite sugeneruoti? &quot;</span>&lt;&lt;endl;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">int</span> n = <a class="code hl_function" href="funkcijos_8h.html#a5f24602c30b94e0fa343039accc48330">skaiciu_mastelis</a>(<span class="stringliteral">&quot;&quot;</span>, 1, <a class="code hl_variable" href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;m;i++)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        A.<a class="code hl_function" href="class_studentas.html#a05199b0b20b04356ecb150285ee1292a">setVardas</a>(vardai[dist(mt)]);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">switch</span>(*A.<a class="code hl_function" href="class_zmogus.html#a82e05fb49136546e6e067ed49a4144a9">getVardas</a>().rbegin())<span class="comment">//pasirenkame pavarde pagal vardo gala</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>: A.<a class="code hl_function" href="class_studentas.html#a1694149ac00b747c845884614d77970c">setPavarde</a>(pavardes_v[dist(mt)]); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">default</span>: A.<a class="code hl_function" href="class_studentas.html#a1694149ac00b747c845884614d77970c">setPavarde</a>(pavardes_m[dist(mt)]); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">int</span> temp;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> ii=0;ii&lt;n;ii++)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            temp = dist(mt)+1; <span class="comment">// Generuoja atsitiktinius skaičius nuo 1 iki 10</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            cout&lt;&lt;<span class="stringliteral">&quot;Sugeneruotas &quot;</span>&lt;&lt;ii+1&lt;&lt;<span class="stringliteral">&quot; pažymys: &quot;</span>&lt;&lt;temp&lt;&lt;endl;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            A.<a class="code hl_function" href="class_studentas.html#a6c1a5b0843c75501b9f727c0ae8d8f3a">setPaz</a>(temp);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        A.<a class="code hl_function" href="class_studentas.html#af7a2740c86cee79b07ea47b3eb819280">setEgz</a>(dist(mt)+1); <span class="comment">// Generuoja atsitiktinius skaičius nuo 1 iki 10</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        cout&lt;&lt;<span class="stringliteral">&quot;Sugeneruotas egzamino pažymys: &quot;</span>&lt;&lt;A.<a class="code hl_function" href="class_studentas.html#a2f9dcb2fef2e6b3dbc1581779a90a68a">getEgz</a>()&lt;&lt;endl;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        A.<a class="code hl_function" href="class_studentas.html#a2dd1118ce63182a782e73f1ecdd7207c">skaiciuoti_rezultata</a>(pasirinkimas);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        grupe.push_back(A);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>       A.<a class="code hl_function" href="class_studentas.html#aa15f7679961e11aa0758a2664103f510">isvalyti_pazymius</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="funkcijos_8h.html#ae49d185a33ca55659f7a9e314ffab7b5">   73</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="generavimas_8cpp.html#ae49d185a33ca55659f7a9e314ffab7b5">failuGeneravimas</a>( <span class="keywordtype">int</span> &amp;n)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::ofstream failas(<span class="stringliteral">&quot;studentai_&quot;</span>+std::to_string(n)+<span class="stringliteral">&quot;.txt&quot;</span>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">if</span> (!failas.is_open()) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        cout &lt;&lt; <span class="stringliteral">&quot;Nepavyko sukurti failo studentai_&quot;</span> &lt;&lt; n &lt;&lt; <span class="stringliteral">&quot;.txt&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">int</span> m = 10; <span class="comment">// Generuojame 10 pažymių kiekvienam studentui testui</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>     mt19937 mt(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));<span class="comment">// Inicijuojame atsitiktinių skaičių generatorių su dabartiniu laiku </span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>   <span class="comment">//static_cast&lt;long unsigned int&gt; naudojamas norint užtikrinti, kad laiko reikšmė būtų tinkamai konvertuota į generatoriaus sėklą</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>   uniform_int_distribution&lt;int&gt; dist(0,9);<span class="comment">// Sukuriame tolygų skaičių pasiskirstymą nuo 0 iki 9   </span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>   </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>   <span class="keywordtype">string</span> vardai[10]={<span class="stringliteral">&quot;Jonas&quot;</span>, <span class="stringliteral">&quot;Petras&quot;</span>, <span class="stringliteral">&quot;Ona&quot;</span>, <span class="stringliteral">&quot;Maryte&quot;</span>, <span class="stringliteral">&quot;Antanas&quot;</span>, <span class="stringliteral">&quot;Ieva&quot;</span>, <span class="stringliteral">&quot;Tomas&quot;</span>, <span class="stringliteral">&quot;Rasa&quot;</span>, <span class="stringliteral">&quot;Dainius&quot;</span>, <span class="stringliteral">&quot;Asta&quot;</span>};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>   <span class="keywordtype">string</span> pavardes_m[10]={<span class="stringliteral">&quot;Pavardaite1&quot;</span>, <span class="stringliteral">&quot;Pavardaite2&quot;</span>, <span class="stringliteral">&quot;Pavardaite3&quot;</span>, <span class="stringliteral">&quot;Pavardaite4&quot;</span>, <span class="stringliteral">&quot;Pavardaite5&quot;</span>, <span class="stringliteral">&quot;Pavardaite6&quot;</span>, <span class="stringliteral">&quot;Pavardaite7&quot;</span>, <span class="stringliteral">&quot;Pavardaite8&quot;</span>, <span class="stringliteral">&quot;Pavardaite9&quot;</span>, <span class="stringliteral">&quot;Pavardaite10&quot;</span>};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>   <span class="keywordtype">string</span> pavardes_v[10]={<span class="stringliteral">&quot;Pavardenis1&quot;</span>, <span class="stringliteral">&quot;Pavardenis2&quot;</span>, <span class="stringliteral">&quot;Pavardenis3&quot;</span>, <span class="stringliteral">&quot;Pavardenis4&quot;</span>, <span class="stringliteral">&quot;Pavardenis5&quot;</span>, <span class="stringliteral">&quot;Pavardenis6&quot;</span>, <span class="stringliteral">&quot;Pavardenis7&quot;</span>, <span class="stringliteral">&quot;Pavardenis8&quot;</span>, <span class="stringliteral">&quot;Pavardenis9&quot;</span>, <span class="stringliteral">&quot;Pavardenis10&quot;</span>};</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>   failas&lt;&lt;left&lt;&lt;setw(15)&lt;&lt;<span class="stringliteral">&quot;Vardas&quot;</span>&lt;&lt;left&lt;&lt;setw(15)&lt;&lt;<span class="stringliteral">&quot;Pavarde&quot;</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>   <span class="keywordtype">int</span> a=45;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;m;i++)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>   {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    failas&lt;&lt;left&lt;&lt;setw(5)&lt;&lt;<span class="stringliteral">&quot;ND&quot;</span>+std::to_string(i+1);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    a+=5;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>   }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>   failas&lt;&lt;left&lt;&lt;setw(5)&lt;&lt;<span class="stringliteral">&quot;Egz.\n&quot;</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;n;i++)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordtype">string</span> vardas=vardai[dist(mt)];</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">string</span> pavarde;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">switch</span>(*vardas.rbegin())<span class="comment">//pasirenkame pavarde pagal vardo gala</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>: pavarde=pavardes_v[dist(mt)]; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">default</span>: pavarde=pavardes_m[dist(mt)]; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        failas&lt;&lt;left&lt;&lt;setw(15)&lt;&lt;vardas&lt;&lt;left&lt;&lt;setw(15)&lt;&lt;pavarde;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;m;j++)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordtype">int</span> temp = dist(mt)+1; <span class="comment">// generuojam pazymius nuo 1 iki 10</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            failas&lt;&lt;left&lt;&lt;setw(5)&lt;&lt;temp;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordtype">int</span> egz = dist(mt)+1; <span class="comment">// generuojam egzamino pazymi nuo 1 iki 10</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        failas&lt;&lt;left&lt;&lt;setw(5)&lt;&lt;egz&lt;&lt;<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>     failas.close();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="ttc" id="aclass_studentas_html"><div class="ttname"><a href="class_studentas.html">Studentas</a></div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00036">studentas.h:36</a></div></div>
+<div class="ttc" id="aclass_studentas_html_a05199b0b20b04356ecb150285ee1292a"><div class="ttname"><a href="class_studentas.html#a05199b0b20b04356ecb150285ee1292a">Studentas::setVardas</a></div><div class="ttdeci">void setVardas(const string &amp;v)</div><div class="ttdoc">setteris</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00062">studentas.h:62</a></div></div>
+<div class="ttc" id="aclass_studentas_html_a1694149ac00b747c845884614d77970c"><div class="ttname"><a href="class_studentas.html#a1694149ac00b747c845884614d77970c">Studentas::setPavarde</a></div><div class="ttdeci">void setPavarde(const string &amp;p)</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00065">studentas.h:65</a></div></div>
+<div class="ttc" id="aclass_studentas_html_a2dd1118ce63182a782e73f1ecdd7207c"><div class="ttname"><a href="class_studentas.html#a2dd1118ce63182a782e73f1ecdd7207c">Studentas::skaiciuoti_rezultata</a></div><div class="ttdeci">void skaiciuoti_rezultata(int pasirinkimas)</div><div class="ttdef"><b>Definition</b> <a href="studentas_8cpp_source.html#l00136">studentas.cpp:136</a></div></div>
+<div class="ttc" id="aclass_studentas_html_a2f9dcb2fef2e6b3dbc1581779a90a68a"><div class="ttname"><a href="class_studentas.html#a2f9dcb2fef2e6b3dbc1581779a90a68a">Studentas::getEgz</a></div><div class="ttdeci">int getEgz() const</div><div class="ttdoc">getteris</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00058">studentas.h:58</a></div></div>
+<div class="ttc" id="aclass_studentas_html_a6c1a5b0843c75501b9f727c0ae8d8f3a"><div class="ttname"><a href="class_studentas.html#a6c1a5b0843c75501b9f727c0ae8d8f3a">Studentas::setPaz</a></div><div class="ttdeci">void setPaz(int p)</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00068">studentas.h:68</a></div></div>
+<div class="ttc" id="aclass_studentas_html_aa15f7679961e11aa0758a2664103f510"><div class="ttname"><a href="class_studentas.html#aa15f7679961e11aa0758a2664103f510">Studentas::isvalyti_pazymius</a></div><div class="ttdeci">void isvalyti_pazymius()</div><div class="ttdef"><b>Definition</b> <a href="studentas_8cpp_source.html#l00169">studentas.cpp:169</a></div></div>
+<div class="ttc" id="aclass_studentas_html_af7a2740c86cee79b07ea47b3eb819280"><div class="ttname"><a href="class_studentas.html#af7a2740c86cee79b07ea47b3eb819280">Studentas::setEgz</a></div><div class="ttdeci">void setEgz(int e)</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00071">studentas.h:71</a></div></div>
+<div class="ttc" id="aclass_zmogus_html_a82e05fb49136546e6e067ed49a4144a9"><div class="ttname"><a href="class_zmogus.html#a82e05fb49136546e6e067ed49a4144a9">Zmogus::getVardas</a></div><div class="ttdeci">virtual string getVardas() const</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00016">studentas.h:16</a></div></div>
+<div class="ttc" id="afunkcijos_8h_html"><div class="ttname"><a href="funkcijos_8h.html">funkcijos.h</a></div></div>
+<div class="ttc" id="afunkcijos_8h_html_a5f24602c30b94e0fa343039accc48330"><div class="ttname"><a href="funkcijos_8h.html#a5f24602c30b94e0fa343039accc48330">skaiciu_mastelis</a></div><div class="ttdeci">int skaiciu_mastelis(const string &amp;prompt, int min_val, int max_val)</div><div class="ttdef"><b>Definition</b> <a href="papildomos__funkcijos_8cpp_source.html#l00030">papildomos_funkcijos.cpp:30</a></div></div>
+<div class="ttc" id="afunkcijos_8h_html_a9549121a612c94013b6ab02b1555cdfe"><div class="ttname"><a href="funkcijos_8h.html#a9549121a612c94013b6ab02b1555cdfe">vardo_skaitymas</a></div><div class="ttdeci">string vardo_skaitymas(const string &amp;prompt)</div><div class="ttdef"><b>Definition</b> <a href="papildomos__funkcijos_8cpp_source.html#l00105">papildomos_funkcijos.cpp:105</a></div></div>
+<div class="ttc" id="ageneravimas_8cpp_html_a1bc369cff3fd1f5f20abe20c2ac7503c"><div class="ttname"><a href="generavimas_8cpp.html#a1bc369cff3fd1f5f20abe20c2ac7503c">generavimasVisko</a></div><div class="ttdeci">void generavimasVisko(Studentas &amp;A, StudentuGrupe &amp;grupe, int &amp;pasirinkimas)</div><div class="ttdef"><b>Definition</b> <a href="#l00035">generavimas.cpp:35</a></div></div>
+<div class="ttc" id="ageneravimas_8cpp_html_a858525eb14d162830da47350f9936e3e"><div class="ttname"><a href="generavimas_8cpp.html#a858525eb14d162830da47350f9936e3e">generavimasSk</a></div><div class="ttdeci">void generavimasSk(Studentas &amp;A, StudentuGrupe &amp;grupe, int &amp;pasirinkimas)</div><div class="ttdef"><b>Definition</b> <a href="#l00003">generavimas.cpp:3</a></div></div>
+<div class="ttc" id="ageneravimas_8cpp_html_ae49d185a33ca55659f7a9e314ffab7b5"><div class="ttname"><a href="generavimas_8cpp.html#ae49d185a33ca55659f7a9e314ffab7b5">failuGeneravimas</a></div><div class="ttdeci">void failuGeneravimas(int &amp;n)</div><div class="ttdef"><b>Definition</b> <a href="#l00073">generavimas.cpp:73</a></div></div>
+<div class="ttc" id="astudentas_8h_html_a3398ae8dc2935ba22c9759fae39e5f15"><div class="ttname"><a href="studentas_8h.html#a3398ae8dc2935ba22c9759fae39e5f15">StudentuGrupe</a></div><div class="ttdeci">std::vector&lt; Studentas &gt; StudentuGrupe</div><div class="ttdoc">sukurti alias StudentuGrupe, kuri galima nuadoti kaip vektoriu, lista arba deque tipo konteineri,...</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00096">studentas.h:96</a></div></div>
+<div class="ttc" id="astudentas_8h_html_aa537f56017807ed9e0cb5a1ae4d41594"><div class="ttname"><a href="studentas_8h.html#aa537f56017807ed9e0cb5a1ae4d41594">Maxpazymiu</a></div><div class="ttdeci">const int Maxpazymiu</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00099">studentas.h:99</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Sugeneruota&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

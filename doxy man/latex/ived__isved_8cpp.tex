@@ -1,0 +1,77 @@
+\doxysection{src/\+ived\+\_\+isved.cpp Failo Nuoroda}
+\hypertarget{ived__isved_8cpp}{}\label{ived__isved_8cpp}\index{src/ived\_isved.cpp@{src/ived\_isved.cpp}}
+{\ttfamily \+\#include "{}funkcijos.\+h"{}}\newline
+Įtraukimo priklausomybių diagrama ived\+\_\+isved.\+cpp:\+
+% FIG 0
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \doxymbox{\hyperlink{ived__isved_8cpp_ae9b010ed0d2716f66d318a6daee597d2}{bufer\+\_\+nusk}} (string \&read\+\_\+vardas, int \&pasirinkimas, int \&m)
+\item 
+void \doxymbox{\hyperlink{ived__isved_8cpp_a0befe647059dbee7c1ff03a386a7bab2}{inputas}} (\doxymbox{\hyperlink{class_studentas}{Studentas}} \&A, \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&grupe, int \&pasirinkimas)
+\item 
+void \doxymbox{\hyperlink{ived__isved_8cpp_aea20c4aa79f8441459a03a8d09c8b9e8}{outputas}} (const \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&vargsiukai, const \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&smartukai, int \&pasirinkimas, int \&isvedimas, int \&m)
+\end{DoxyCompactItemize}
+
+
+\label{ived__isved_8cpp_doc-func-members}
+\Hypertarget{ived__isved_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{ived__isved_8cpp_ae9b010ed0d2716f66d318a6daee597d2}\index{ived\_isved.cpp@{ived\_isved.cpp}!bufer\_nusk@{bufer\_nusk}}
+\index{bufer\_nusk@{bufer\_nusk}!ived\_isved.cpp@{ived\_isved.cpp}}
+\doxysubsubsection{\texorpdfstring{bufer\_nusk()}{bufer\_nusk()}}
+{\footnotesize\ttfamily \label{ived__isved_8cpp_ae9b010ed0d2716f66d318a6daee597d2} 
+\doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} bufer\+\_\+nusk (\begin{DoxyParamCaption}\item[{string \&}]{read\+\_\+vardas}{, }\item[{int \&}]{pasirinkimas}{, }\item[{int \&}]{m}{}\end{DoxyParamCaption})}
+
+Sukuriame stringstream objektą, kuris leis mums lengvai išskaidyti eilutę į atskirus žodžius ir skaičius
+
+Skaitome eilutę į \doxylink{class_studentas}{Studentas} objektą per klasės metodą
+
+Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+
+Apibrėžimas failo \doxymbox{\hyperlink{ived__isved_8cpp_source}{ived\+\_\+isved.\+cpp}} eilutėje \doxymbox{\hyperlink{ived__isved_8cpp_source_l00004}{4}}.
+
+Funkcijos kvietimo grafas:\+
+% FIG 1
+Here is the caller graph for this function:\+
+% FIG 2
+\Hypertarget{ived__isved_8cpp_a0befe647059dbee7c1ff03a386a7bab2}\index{ived\_isved.cpp@{ived\_isved.cpp}!inputas@{inputas}}
+\index{inputas@{inputas}!ived\_isved.cpp@{ived\_isved.cpp}}
+\doxysubsubsection{\texorpdfstring{inputas()}{inputas()}}
+{\footnotesize\ttfamily \label{ived__isved_8cpp_a0befe647059dbee7c1ff03a386a7bab2} 
+void inputas (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_studentas}{Studentas}} \&}]{A}{, }\item[{\doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&}]{grupe}{, }\item[{int \&}]{pasirinkimas}{}\end{DoxyParamCaption})}
+
+Rankinis įvedimas per klasės metodą
+
+Pridedame studentą į grupę
+
+Išvalome pažymių vektorių, kad jis būtų tuščias prieš kitą studento įvedimą
+
+Apibrėžimas failo \doxymbox{\hyperlink{ived__isved_8cpp_source}{ived\+\_\+isved.\+cpp}} eilutėje \doxymbox{\hyperlink{ived__isved_8cpp_source_l00060}{60}}.
+
+Funkcijos kvietimo grafas:\+
+% FIG 3
+Here is the caller graph for this function:\+
+% FIG 4
+\Hypertarget{ived__isved_8cpp_aea20c4aa79f8441459a03a8d09c8b9e8}\index{ived\_isved.cpp@{ived\_isved.cpp}!outputas@{outputas}}
+\index{outputas@{outputas}!ived\_isved.cpp@{ived\_isved.cpp}}
+\doxysubsubsection{\texorpdfstring{outputas()}{outputas()}}
+{\footnotesize\ttfamily \label{ived__isved_8cpp_aea20c4aa79f8441459a03a8d09c8b9e8} 
+void outputas (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&}]{vargsiukai}{, }\item[{const \doxymbox{\hyperlink{studentas_8h_a3398ae8dc2935ba22c9759fae39e5f15}{Studentu\+Grupe}} \&}]{smartukai}{, }\item[{int \&}]{pasirinkimas}{, }\item[{int \&}]{isvedimas}{, }\item[{int \&}]{m}{}\end{DoxyParamCaption})}
+
+Pradedame matuoti laiką
+
+std::\+chrono::\+high\+\_\+resolution\+\_\+clock::\+now() funkcija grąžina dabartinį laiką, kuris bus naudojamas vėliau apskaičiuoti, kiek laiko užtruko failo nuskaitymas ir apdorojimas
+
+Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
+
+std::\+chrono::\+duration$<$double$>$ yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.\+count() grąžina šią reikšmę, kurią mes išvedame į ekraną
+
+Apskaičiuojame, kiek laiko praėjo nuo pradžios iki dabar, ir išsaugome šį laiką diff kintamajame
+
+std::\+chrono::\+duration$<$double$>$ yra tipas, kuris saugo laiką sekundėmis kaip double reikšmę, o diff.\+count() grąžina šią reikšmę, kurią mes išvedame į ekraną
+
+Apibrėžimas failo \doxymbox{\hyperlink{ived__isved_8cpp_source}{ived\+\_\+isved.\+cpp}} eilutėje \doxymbox{\hyperlink{ived__isved_8cpp_source_l00074}{74}}.
+
+Here is the caller graph for this function:\+
+% FIG 5

@@ -4,6 +4,8 @@
 
 int skaiciu_mastelis(const string &prompt, int min_val, int max_val);
 string vardo_skaitymas(const string &prompt);
+
+//! Pagrindine klase zmogus
 class Zmogus {
   protected:
   string Vardas;
@@ -14,21 +16,23 @@ class Zmogus {
   virtual string getVardas() const { return Vardas; }
   virtual string getPavarde() const { return Pavarde; }
  
-// virtual'i funkcija
+//! virtual'i funkcija
     virtual void whoAmI() const = 0;
-  // Overloadint'a (kita) virtuali whoAmI() funkcija
+  //1 Overloadint'a (kita) virtuali whoAmI() funkcija
     virtual std::ostream& whoAmI(std::ostream& out) const {
         out << "Aš esu " << Vardas << " iš Base klasės\n";
         return out;
     }
-  // Overloadint'as operator<< kaip friend funkcija, o dešininis operandas yra Base&
+  //! Overloadint'as operator<< kaip friend funkcija, o dešininis operandas yra Base&
     friend std::ostream& operator<<(std::ostream &out, const Zmogus &z) {
         // Visą darbą atliks whoAmI() funkcija, kuri yra virtuali!
         return z.whoAmI(out);
     }
-  virtual ~Zmogus() {Vardas = ""; Pavarde = "";}; //destruktorius
+  virtual ~Zmogus() {Vardas = ""; Pavarde = "";}; //!destruktorius
  
 };
+
+//! Klase studentas, kuri yra paveldeta is zmogaus klases
 class Studentas : public Zmogus {
   private:
   //string Vardas;
@@ -42,7 +46,7 @@ class Studentas : public Zmogus {
 public:
  
 
-  Studentas();//default konstruktorius
+  Studentas();//! default konstruktorius
  
 void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas klasės\n"; }
     virtual std::ostream& whoAmI(std::ostream& out) const {
@@ -50,10 +54,10 @@ void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas 
         return out;
     }
 
-  const vector<int>& getPaz() const { return paz; } //getteris
-  int getEgz() const { return egz; } //getteris
-  double Rezultatas() const {return rez;} //getteris
-  std::istream& readStudent(std::istream&); //setteris
+  const vector<int>& getPaz() const { return paz; } //! getteris
+  int getEgz() const { return egz; } //! getteris
+  double Rezultatas() const {return rez;} //! getteris
+  std::istream& readStudent(std::istream&); //! setteris
   
   void setVardas(const string& v) {
     Vardas = v;
@@ -69,11 +73,11 @@ void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas 
   }
   
 
-  Studentas(const Studentas& s); //copy konstruktorius
-  Studentas(Studentas&& s); // move konstruktorius
-  Studentas& operator=(const Studentas& s); //copy priskyrimas = 
-  Studentas& operator=(Studentas&& s); // move priskyrimas =
-  ~Studentas(); //destruktorius
+  Studentas(const Studentas& s); //! copy konstruktorius
+  Studentas(Studentas&& s); //! move konstruktorius
+  Studentas& operator=(const Studentas& s); //! copy priskyrimas = 
+  Studentas& operator=(Studentas&& s); //! move priskyrimas =
+  ~Studentas(); //! destruktorius
 
 
   void nuskaityti_ranka(int max_pazymiu);
@@ -88,7 +92,7 @@ void whoAmI() const { std::cout << "Aš esu " << getVardas() << " iš Studentas 
 
 
 
-//sukurti alias StudentuGrupe, kuri galima nuadoti kaip vektoriu, lista arba deque tipo konteineri, tam, kad patikrinti programos sparta, su skirtingo tipo konteineriais.
+//! sukurti alias StudentuGrupe, kuri galima nuadoti kaip vektoriu, lista arba deque tipo konteineri, tam, kad patikrinti programos sparta, su skirtingo tipo konteineriais.
 using StudentuGrupe = std::vector<Studentas>;  // vector
 //using StudentuGrupe = std::list<Studentas>;      // list
 //using StudentuGrupe = std::deque<Studentas>;   // deque

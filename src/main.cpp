@@ -4,11 +4,11 @@
 
 
 int main(){
-    SetConsoleOutputCP(CP_UTF8); // Nustatome konsolės išvesties kodavimą į UTF-8, kad būtų galima teisingai rodyti lietuviškus simbolius
-    SetConsoleCP(CP_UTF8); // Nustatome konsolės įvesties kodavimą į UTF-8, kad būtų galima teisingai skaityti lietuviškus simbolius iš vartotojo įvesties
+    SetConsoleOutputCP(CP_UTF8); //! Nustatome konsolės išvesties kodavimą į UTF-8, kad būtų galima teisingai rodyti lietuviškus simbolius
+    SetConsoleCP(CP_UTF8); //! Nustatome konsolės įvesties kodavimą į UTF-8, kad būtų galima teisingai skaityti lietuviškus simbolius iš vartotojo įvesties
     
 system("powershell ls studentai*.txt");
-   std::ios::sync_with_stdio(false);// Išjungia sinchronizaciją tarp C++ srautų ir C srautų, kad pagerintų įvesties/išvesties našumą
+   std::ios::sync_with_stdio(false);//! Išjungia sinchronizaciją tarp C++ srautų ir C srautų, kad pagerintų įvesties/išvesties našumą
     //std::ios::sync_with_stdio(false) funkcija yra naudojama norint pagerinti įvesties/išvesties našumą,
     // išjungiant sinchronizaciją tarp C++ srautų (std::cin, std::cout) ir C srautų (scanf, printf).
     // Tai leidžia C++ srautams veikti greičiau, nes jie nebėra priversti sinchronizuotis su C srautais.
@@ -20,9 +20,6 @@ system("powershell ls studentai*.txt");
     StudentuGrupe grupe;
     StudentuGrupe vargsiukai;
     StudentuGrupe smartukai;
-    //grupe.reserve(Maxstudentu);
-    //vargsiukai.reserve(Maxstudentu);
-    //smartukai.reserve(Maxstudentu);
     int pasirinkimas;
     int isvedimas;
     int m;

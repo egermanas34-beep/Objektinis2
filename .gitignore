@@ -45,7 +45,7 @@ build/
 build-tests/
 output/
 nuotraukos tyrimu/
-
+dozy man/
 # Generated runtime/data files
 laikas.txt
 blokas.txt
