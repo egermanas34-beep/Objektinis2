@@ -29,6 +29,7 @@ Projektas pertvarkytas naudojant CMake. Sukurti atskiri CMakeLists.txt failai: p
 Sugeneruota Doxygen dokumentacija. Paruosti: HTML dokumentacijos failai, LaTeX dokumentacija ir PDF dokumentacija.
 ### Programos paleidimas
 Atidare aplankala, kuriame yra musu projektas D:\objektinis\2uzdClass PowerShell terminale rasome
+
 cmake -S . -B build
 
 cmake --build build
@@ -36,5 +37,6 @@ cmake --build build
 .\build\src\Debug\StudentuSistema.exe
 ### Unit testu paleidimas
 Tame paciame aplankale Powershell terminale ivedame
+
 ctest --test-dir build
 
