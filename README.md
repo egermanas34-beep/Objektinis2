@@ -1,4 +1,4 @@
-# v1.5
+# v2.0
 ## is v1.2 
 ### Perdengti ivesties/isvesties operatoriai
 Programoje buvo realizuoti ivesties ir isvesties operatoriai darbui su Studentas klase. 
@@ -17,7 +17,22 @@ Buvo atliktas testas patikrinti, per kiek laiko bus nuskaitomas failas su 1,000,
 
 studentai_1000000.txt nuskaitymo ir apdorojimo laikas: 3.04705 s
 Duomenų išvedimas užtruko: 2.69627 sekundžių.
-## kas naujo v1.5
+## v1.5
 ### sukurta bazine klase Zmogus
 Klaseje Zmogus yra saugomi zmogaus vardas ir pavarde, kurie yra saugomi kaip protected nariai. Taip pat buvo padaryta taip, kad sia bazine klase galetu pasiekti tik paveldincios ja klases ir taip buvo patikrinta tyrimasKlasesMetodams funkcoijoje, kai buvo bandoma priskirti tiesiogiai Zmogui varda ir pavarde.
+## Nauja versijoje v2.0
+### Prideta
+Sioje versijoje realizuoti unit testai naudojant Google test. Patikrinta 5 metodu taisykle: copy/move konstruktoriai bei copy/move assignment operator ir destruktoriaus veikimas. Prideti rezultatu skaiciavimo testai ir ivesties/isvesties testai.
+### Projekto strukturos pakeitimai
+Projektas pertvarkytas naudojant CMake. Sukurti atskiri CMakeLists.txt failai: pagrindiniam projektui, src/ katalogui ir tests/ katalogui.
+### Dokumentacija
+Sugeneruota Doxygen dokumentacija. Paruosti: HTML dokumentacijos failai, LaTeX dokumentacija ir PDF dokumentacija.
+### Programos paleidimas
+Atidare aplankala, kuriame yra musu projektas D:\objektinis\2uzdClass PowerShell terminale rasome
+cmake -S . -B build
+cmake --build build
+.\build\src\Debug\StudentuSistema.exe
+### Unit testu paleidimas
+Tame paciame aplankale Powershell terminale ivedame
+"ctest --test-dir build"
 
