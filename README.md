@@ -34,5 +34,5 @@ cmake --build build
 .\build\src\Debug\StudentuSistema.exe
 ### Unit testu paleidimas
 Tame paciame aplankale Powershell terminale ivedame
-"ctest --test-dir build"
+ctest --test-dir build
 
