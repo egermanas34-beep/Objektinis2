@@ -30,7 +30,9 @@ Sugeneruota Doxygen dokumentacija. Paruosti: HTML dokumentacijos failai, LaTeX d
 ### Programos paleidimas
 Atidare aplankala, kuriame yra musu projektas D:\objektinis\2uzdClass PowerShell terminale rasome
 cmake -S . -B build
+
 cmake --build build
+
 .\build\src\Debug\StudentuSistema.exe
 ### Unit testu paleidimas
 Tame paciame aplankale Powershell terminale ivedame
