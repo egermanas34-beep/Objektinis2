@@ -45,7 +45,7 @@ build/
 build-tests/
 output/
 nuotraukos tyrimu/
-doxy man/
+doxyman/
 Doxyfile
 # Generated runtime/data files
 laikas.txt
