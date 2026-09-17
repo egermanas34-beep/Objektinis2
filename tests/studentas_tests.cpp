@@ -113,6 +113,7 @@ TEST(StudentasRezultatai, NaudojantMediana) {
     EXPECT_DOUBLE_EQ(student.Rezultatas(), 8.4);
 }
 
+
 TEST(StudentasStreams, Nuskaitymas) {
     std::istringstream input("Tomas Tomaitis 10 9 0");
     Studentas student;
@@ -136,4 +137,8 @@ TEST(StudentasStreams, Isvedimas) {
     EXPECT_NE(text.find("Laura"), std::string::npos);//tikriname ar isvedime yra vardas, pavarde ir rezultatas
     EXPECT_NE(text.find("Lauraitė"), std::string::npos);
     EXPECT_NE(text.find("10.00"), std::string::npos);
+}
+
+TEST(StudentasStreams, skaiciai) {
+    EXPECT_EQ(5,5);
 }

@@ -48,7 +48,7 @@ void tyrimasKlasesMetodams()
     s7.setVardas("Asta");
     s7.setPavarde("Astaitė");   
    s7.whoAmI();
-   // Zmogus z1{"Tomas", "Tomaitis"};
+    //Zmogus z1{"Tomas", "Tomaitis"};
    // std::cout << "Zmogus z1:\n";
    // std::cout << "Vardas: " << z1.getVardas() << ", Pavardė: " << z1.getPavarde() << "\n";
   
